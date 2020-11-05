@@ -28,4 +28,13 @@ public class Account {
     void printBalance() {
         System.out.printf("name: %s, balance: %,d\n", name, balance);
     }
+    
+    // 轉帳
+    void transfer(int money, Account ac ) {
+        if(money > 0 && balance >= money) {
+            withdraw(money);
+            ac.setBalance(money);
+        }
+    }
+    
 }
