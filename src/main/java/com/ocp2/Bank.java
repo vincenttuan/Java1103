@@ -8,7 +8,9 @@ public class Bank {
         ac1.balance = 10000;
         ac2.name = "mary";
         ac2.balance = 10000;
-        System.out.printf("name: %s, balace: %,d\n", ac1.name, ac1.balance);
-        System.out.printf("name: %s, balace: %,d\n", ac2.name, ac2.balance);
+        //System.out.printf("name: %s, balace: %,d\n", ac1.name, ac1.balance);
+        //System.out.printf("name: %s, balace: %,d\n", ac2.name, ac2.balance);
+        ac1.printBalance();
+        ac2.printBalance();
     }
 }
