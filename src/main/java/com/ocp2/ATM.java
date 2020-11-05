@@ -39,6 +39,13 @@ public class ATM {
                     break;
                 case 3:
                     System.out.println("提款");
+                    if(ac1 != null) {
+                        System.out.print("請輸入提款金額: ");
+                        int money = sc.nextInt();
+                        ac1.withdraw(money);
+                    } else {
+                        System.out.println("請先建立帳戶資料!");
+                    }
                     break;
                 case 4:
                     System.out.println("查詢");
