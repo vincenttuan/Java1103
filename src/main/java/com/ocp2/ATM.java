@@ -23,6 +23,9 @@ public class ATM {
                 case 1:
                     System.out.println("建立新帳戶");
                     ac1 = new Account();
+                    System.out.print("請輸入帳戶名稱: ");
+                    String name = sc.next();
+                    ac1.name = name;
                     break;
                 case 2:
                     System.out.println("存款");
