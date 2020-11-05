@@ -11,5 +11,7 @@ public class PrintStars2 {
             }
             System.out.println();
         }
+        
+
     }
 }
