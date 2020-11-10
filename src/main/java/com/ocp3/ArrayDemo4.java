@@ -33,6 +33,26 @@ public class ArrayDemo4 {
         System.out.println("----------------------------------------------");
         // 體重部分:
         double[] w = {62, 57, 58, 64, 64};
+        double w_sum = 0;
+        for (int i = 0; i < w.length; i++) {
+            w_sum += w[i];
+        }
+        double w_avg = w_sum / w.length;
+        System.out.printf("體重平均: %.2f\n", w_avg);
+        // 體重平方差的總和
+        double w_diff_sum = 0;
+        for (int i = 0; i < w.length; i++) {
+            w_diff_sum += Math.pow(w[i] - w_avg, 2);
+        }
+        System.out.printf("體重平方差的總和: %.2f\n", w_diff_sum);
+        // 體重的標準差(SD)
+        double w_sd = Math.sqrt((1.0/w.length) * w_diff_sum);
+        System.out.printf("體重的標準差(SD): %.2f\n", w_sd);
+        // 體重的變異係數(CV 變異係數公式 : 標準差 / 平均)
+        double w_cv = w_sd / w_avg;
+        System.out.printf("體重的變異係數(CV): %.3f (%.1f%%)\n", w_cv, (w_cv*100));
+        System.out.println();
+        System.out.printf("%s 的分散程度大\n", (h_cv > w_cv ? "身高" : "體重"));
         
     }
 }
