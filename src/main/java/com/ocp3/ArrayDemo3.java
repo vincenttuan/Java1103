@@ -14,5 +14,9 @@ public class ArrayDemo3 {
             sum += score[i];
         }
         System.out.println(sum);
+        System.out.print("平均:");
+        int avg = sum / score.length;
+        System.out.println(avg);
+        
     }
 }
