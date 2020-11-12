@@ -10,15 +10,20 @@ public class ArrayDemo2 {
         // 擲一顆骰子得分數
         int score = getScore(dice);
         System.out.println(score);
-        // 擲三顆骰子得總分數
-        int[] scores = new int[3];
-        for(int i=0;i<scores.length;i++) {
-            scores[i] = getScore(dice);
-        }
+        // 擲 n=3 顆骰子得總分數
+        int[] scores = playDice(dice, 3);
         System.out.println(Arrays.toString(scores));
         // 計算總分
         int sum = getSum(scores);
         System.out.println(sum);
+    }
+    
+    public static int[] playDice(int[] dice, int n) {
+        int[] scores = new int[n]; // 記錄每一顆骰子的分數
+        for(int i=0;i<scores.length;i++) {
+            scores[i] = getScore(dice);
+        }
+        return scores;
     }
     
     public static int getSum(int [] scores) {
