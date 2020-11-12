@@ -5,8 +5,13 @@ import java.util.Random;
 
 public class ArrayDemo3 {
     public static void main(String[] args) {
+        int[] nums = getRandomNumber(4);
+        System.out.println(Arrays.toString(nums));
+    }
+    
+    public static int [] getRandomNumber(int amount) {
         Random r = new Random();
-        int[] nums = new int[4];
+        int[] nums = new int[amount];
         for(int i=0;i<nums.length;) {
             int n = r.nextInt(9) + 1;
             if(!isExist(nums, n)) {
@@ -14,7 +19,7 @@ public class ArrayDemo3 {
                 i++;
             }
         }
-        System.out.println(Arrays.toString(nums));
+        return nums;
     }
     
     public static boolean isExist(int[] nums, int n) {
