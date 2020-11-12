@@ -20,7 +20,8 @@ public class ArrayDemo {
         double w_avg = getAvg(weight);
         System.out.printf("%.1f, %.1f\n", h_avg, w_avg);
         // 算出BMI平均
-        
+        double bmi_avg = getBMIAvg(height, weight);
+        System.out.printf("BMI平均: %.2f\n", bmi_avg);
     }
     
     public static double getBMIAvg(double[] h_array, double[] w_array) {
