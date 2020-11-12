@@ -19,9 +19,19 @@ public class ArrayDemo {
         // 算出體重平均
         double w_avg = getAvg(weight);
         System.out.printf("%.1f, %.1f\n", h_avg, w_avg);
+        // 算出BMI平均
+        
     }
     
-    public static double getSum(double[] array) {
+    public static double getBMIAvg(double[] h_array, double[] w_array) {
+        if(h_array.length != w_array.length) {
+            System.out.println("資料長度不一致");
+            return 0.0;
+        }
+    }
+    
+    
+    public static double getSum(double [] array) {
         double sum = 0;
         for(int i=0;i<array.length;i++) {
             sum += array[i];
