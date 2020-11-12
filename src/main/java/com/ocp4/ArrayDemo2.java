@@ -1,5 +1,6 @@
 package com.ocp4;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class ArrayDemo2 {
@@ -11,7 +12,21 @@ public class ArrayDemo2 {
         System.out.println(score);
         // 擲三顆骰子得總分數
         int[] scores = new int[3];
-        
+        for(int i=0;i<scores.length;i++) {
+            scores[i] = getScore(dice);
+        }
+        System.out.println(Arrays.toString(scores));
+        // 計算總分
+        int sum = getSum(scores);
+        System.out.println(sum);
+    }
+    
+    public static int getSum(int [] scores) {
+        int sum = 0;
+        for(int i=0;i<scores.length;i++) {
+            sum += scores[i];
+        }
+        return sum;
     }
     
     public static int getScore(int[] dice) {
