@@ -28,6 +28,16 @@ public class ArrayDemo {
             System.out.println("資料長度不一致");
             return 0.0;
         }
+        double bmi_sum = 0; // bmi 的總和
+        int len = h_array.length; // 先把長度(筆數, 個數)存入到 len 的變數中
+        // 因為 h_array 與 w_array 的長度是相同的, 所以可以共用 i 值
+        for(int i=0;i<len;i++) {
+            double h = h_array[i];
+            double w = w_array[i];
+            double bmi = w / Math.pow(h/100, 2); // 計算 bmi
+            bmi_sum += bmi; // 累計 bmi 的總和
+        }
+        return bmi_sum / len; // 計算 bmi 的平均
     }
     
     
