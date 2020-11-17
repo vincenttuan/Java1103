@@ -12,6 +12,7 @@ package com.ocp5;
 import static com.utils.MathUtil.avg;
 import static com.utils.MathUtil.sd;
 import static com.utils.MathUtil.cv;
+import static com.utils.MathUtil.max;
 import java.util.Arrays;
 
 public class MultiArray2 {
@@ -21,11 +22,12 @@ public class MultiArray2 {
             {6.8, 7.2, 6.8,  7.5,  6.9, 7.9,  7.9,  7.1,  7.2},
         };
         for(int i=0;i<profit.length;i++) {
-            System.out.printf("%s 平均: %.1f, sd: %.2f, cv: %.2f\n", 
+            System.out.printf("%s 平均: %.1f, 標準差: %.2f, 變異係數: %.2f, 最大值: %.1f\n", 
                     Arrays.toString(profit[i]), 
                     avg(profit[i]),
                     sd(profit[i]),
-                    cv(profit[i])
+                    cv(profit[i]),
+                    max(profit[i])
             );
         }
     }
