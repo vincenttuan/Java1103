@@ -28,6 +28,11 @@ public class MathUtil {
     }
     
     // 變異係數
+    public static double cv(double sd, double avg) {
+        return sd / avg;
+    }
+    
+    // 變異係數
     public static double cv(double [] values) {
         double sd = sd(values);
         double avg = avg(values);
