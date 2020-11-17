@@ -1,6 +1,7 @@
 package com.ocp5;
 
-import com.utils.MathUtil;
+import static com.utils.MathUtil.avg;
+
 import java.util.Arrays;
 
 /*
@@ -19,7 +20,7 @@ public class MultiArray2 {
             {6.8, 7.2, 6.8,  7.5,  6.9, 7.9,  7.9,  7.1,  7.2},
         };
         for(int i=0;i<profit.length;i++) {
-            System.out.printf("%s 平均: %.1f\n", Arrays.toString(profit[i]), MathUtil.avg(profit[i]));
+            System.out.printf("%s 平均: %.1f\n", Arrays.toString(profit[i]), avg(profit[i]));
         }
     }
     
