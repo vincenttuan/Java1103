@@ -46,4 +46,14 @@ public class MathUtil {
         return max;
     }
     
+    // 取得最小值
+    public static double min(double [] values) {
+        double min = Integer.MAX_VALUE;
+        for(int i=0;i<values.length;i++) {
+            if(values[i] < min) {
+                min = values[i];
+            }
+        }
+        return min;
+    }
 }
