@@ -1,9 +1,3 @@
-package com.ocp5;
-
-import static com.utils.MathUtil.avg;
-
-import java.util.Arrays;
-
 /*
 某公司有19位員工，其中10位在去年投資股票，一年的獲
 利率如下(單位：%)：
@@ -13,6 +7,11 @@ import java.util.Arrays;
 試分別求此公司的員工投資股票與公債的個別平均獲利率
 試分別求此公司的員工投資股票與公債的獲利率變異係數。
 */
+package com.ocp5;
+
+import static com.utils.MathUtil.avg;
+import java.util.Arrays;
+
 public class MultiArray2 {
     public static void main(String[] args) {
         double[][] profit = {
