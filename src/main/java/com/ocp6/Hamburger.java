@@ -22,6 +22,8 @@ public class Hamburger {
         }
     }
 
-    
+    public String toString() {
+        return name + " $" + price;
+    }
     
 }
