@@ -5,8 +5,9 @@ public class Mcdonalds {
         Hamburger h = new Hamburger();
         h.setName("大麥克");
         h.setPrice(72);
-        //System.out.println(h.getName() + ", " + h.getPrice());
         System.out.println(h);
-        //System.out.println(h.toString());
+        
+        Hamburger h2 = new Hamburger("麥香魚", 60);
+        System.out.println(h2);
     }
 }

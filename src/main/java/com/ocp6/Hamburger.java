@@ -3,7 +3,17 @@ package com.ocp6;
 public class Hamburger {
     private String name;
     private int price;
+    
+    // 建構子
+    public Hamburger() {
+    }
 
+    public Hamburger(String name, int price) {
+        this.name = name;
+        this.price = price;
+    }
+    
+    // 方法
     public String getName() {
         return name;
     }
@@ -22,8 +32,10 @@ public class Hamburger {
         }
     }
 
+    @Override
     public String toString() {
-        return name + " $" + price;
+        return "Hamburger{" + "name=" + name + ", price=" + price + '}';
     }
+    
     
 }
