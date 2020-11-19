@@ -11,6 +11,13 @@ public class Mcdonalds2 {
         Hamburger[] hamburgers = {h1, h2};
         SideMeal[] sideMeals = {s1, s2};
         // 總金額
-        
+        int sum = 0;
+        for(Hamburger hamburger : hamburgers) {
+            sum += hamburger.getPrice();
+        }
+        for(SideMeal sideMeal : sideMeals) {
+            sum += sideMeal.getPrice();
+        }
+        System.out.printf("總金額: $%d\n", sum);
     }
 }
