@@ -1,5 +1,7 @@
 package com.ocp6;
 
+import java.util.Arrays;
+
 public class Mcdonalds3 {
     public static void main(String[] args) {
         // 商品
@@ -15,6 +17,11 @@ public class Mcdonalds3 {
         SetMeal stwo = new SetMeal(h2, s2, d2);
         
         SetMeal[] setMeals = {sone, stwo};
-        
+        int sum = 0;
+        for(SetMeal setMeal : setMeals) {
+            sum += setMeal.getSum();
+        }
+        System.out.printf("總金額: $%d\n", sum);
+        System.out.println(Arrays.toString(setMeals));
     }
 }

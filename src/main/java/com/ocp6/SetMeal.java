@@ -4,11 +4,18 @@ public class SetMeal {
     private Hamburger hamburger;
     private SideMeal sideMeal;
     private Drink drink;
-
+    // 總金額
+    private int sum;
+    
     public SetMeal(Hamburger hamburger, SideMeal sideMeal, Drink drink) {
         this.hamburger = hamburger;
         this.sideMeal = sideMeal;
         this.drink = drink;
+        this.sum = hamburger.getPrice() + sideMeal.getPrice() + drink.getPrice();
+    }
+
+    public int getSum() {
+        return sum;
     }
 
     public Hamburger getHamburger() {
