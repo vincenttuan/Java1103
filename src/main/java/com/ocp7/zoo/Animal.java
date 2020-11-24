@@ -27,7 +27,11 @@ public class Animal {
     public void setFoot(int foot) {
         this.foot = foot;
     }
-
+    
+    public void move() {
+        System.out.println("移動");
+    }
+    
     @Override
     public String toString() {
         String className = getClass().getName();

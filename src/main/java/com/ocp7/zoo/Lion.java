@@ -9,4 +9,8 @@ public class Lion extends Animal {
         super(name, foot);
     }
     
+    @Override
+    public void move() {
+        System.out.println("會跑");
+    }
 }
