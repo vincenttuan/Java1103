@@ -8,7 +8,9 @@ public class BookStore {
         Book b2 = new Book();
         b2.setName("VB");
         b2.setPrice(80);
+        Book b3 = new Book("Python", 70);
         System.out.println(b1);
         System.out.println(b2);
+        System.out.println(b3);
     }
 }

@@ -3,7 +3,18 @@ package com.ocp7;
 public class Book {
     private String name;
     private int price;
-
+    
+    public Book() {
+        System.out.println("執行 Book 建構子 1");
+    }
+    
+    public Book(String name, int price) {
+        System.out.println("執行 Book 建構子 2");
+        this.name = name;
+        this.price = price;
+    }
+    
+    
     public String getName() {
         return name;
     }
