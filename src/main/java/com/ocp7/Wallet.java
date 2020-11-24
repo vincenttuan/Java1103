@@ -6,7 +6,8 @@ public class Wallet {
     public int getAndPrintMoney() {
         // 資源 = 就是屬性與方法
         // 在物件方法中可以存取物件資源與類別資源
-        System.out.println(owner + "有 $" + money);
+        System.out.println(owner);
+        System.out.println(money);
         return money;
     }
     public static void printMoney() {
