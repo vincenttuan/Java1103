@@ -4,6 +4,14 @@ public class Animal {
     private String name;
     private int foot;
 
+    public Animal() {
+    }
+
+    public Animal(String name, int foot) {
+        this.name = name;
+        this.foot = foot;
+    }
+    
     public String getName() {
         return name;
     }
