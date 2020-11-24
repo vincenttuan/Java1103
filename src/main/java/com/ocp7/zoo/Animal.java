@@ -19,5 +19,11 @@ public class Animal {
     public void setFoot(int foot) {
         this.foot = foot;
     }
+
+    @Override
+    public String toString() {
+        String className = getClass().getName();
+        return className + " : " + name + " 有 " + foot + " 隻腳";
+    }
     
 }
