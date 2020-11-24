@@ -1,6 +1,7 @@
 package com.ocp7;
 
 public class Book {
+    public static String publishName = "gotop";
     private String name;
     private int price;
     
@@ -33,7 +34,9 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" + "name=" + name + ", price=" + price + '}';
+        return "Book{" + "publishName=" + publishName + ", name=" + name + ", price=" + price + '}';
     }
+
+    
     
 }
