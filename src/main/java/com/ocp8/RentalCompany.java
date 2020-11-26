@@ -45,7 +45,7 @@ public class RentalCompany {
                     // 減去庫存
                     ts.setAmount(ts.getAmount() - amount);
                     // 累計租金
-                    rent += ts.getPrice();
+                    rent += ts.getPrice() * amount;
                 }
             }
             // 將租金區域變數的值設定給 rent 物件變數
