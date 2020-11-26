@@ -14,11 +14,25 @@ public class Main {
         for(Transportation ts : trans) {
             if(ts instanceof Car) {
                 ((Car)ts).play();
-                Car car = (Car)ts;
-                car.play();
+                //Car car = (Car)ts;
+                //car.play();
                 System.out.printf("我要租: %s\n", ts);
                 int amount = ts.getAmount();
                 amount = amount - 1;
+                ts.setAmount(amount);
+            }
+            if(ts instanceof Bicycle) {
+                ((Bicycle)ts).message();
+                System.out.printf("我要租: %s\n", ts);
+                int amount = ts.getAmount();
+                amount = amount - 3;
+                ts.setAmount(amount);
+            }
+            if(ts instanceof Airplane) {
+                ((Airplane)ts).service();
+                System.out.printf("我要租: %s\n", ts);
+                int amount = ts.getAmount();
+                amount = amount - 2;
                 ts.setAmount(amount);
             }
             
