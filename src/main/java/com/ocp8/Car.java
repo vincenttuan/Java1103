@@ -12,4 +12,8 @@ public class Car extends Transportation {
         setPrice(price);
     }
     
+    public void play() {
+        System.out.println("我可以撸...");
+    }
+    
 }
