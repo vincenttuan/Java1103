@@ -55,5 +55,12 @@ public class RentalCompany {
             return false;
         }
     }
-
+    
+    // 列印庫存
+    public void print() {
+        for(Transportation ts : transportations) {
+            System.out.printf("%s 有 %d 台, 每台租金 $%d\n",
+                    ts.getName(), ts.getAmount(), ts.getPrice());
+        }
+    }
 }

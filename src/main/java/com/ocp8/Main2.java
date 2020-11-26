@@ -11,5 +11,7 @@ public class Main2 {
         } else {
             System.out.printf("租車 %d 台失敗(庫存不足)\n", rentCarAmount);
         }
+        // 列印庫存
+        rc.print();
     }
 }
