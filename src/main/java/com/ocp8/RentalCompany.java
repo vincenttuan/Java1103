@@ -114,6 +114,22 @@ public class RentalCompany {
         }
     }
     
+    // 租任意交通工具
+    public boolean rentTransportation(Class clazz, int amount) {
+        // 計算數量是否足夠 ?
+        for(Transportation ts : transportations) {
+            if(clazz.isInstance(ts)) {  //if(ts instanceof clazz) {
+                if(ts.getAmount() >= amount) {
+                    this.rent += ts.getPrice() * amount; // 累計租金
+                    ts.setAmount(ts.getAmount() - amount); // 修改庫存
+                } else {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    
     // 列印庫存
     public void print() {
         for(Transportation ts : transportations) {
