@@ -49,7 +49,7 @@ public class RentalCompany {
                 }
             }
             // 將租金區域變數的值設定給 rent 物件變數
-            this.rent = rent;
+            this.rent += rent;
             return true;
         } else {
             return false;
@@ -57,8 +57,61 @@ public class RentalCompany {
     }
     
     // 租腳踏車
-    
+    public boolean rentBicycle(int amount) {
+        // 查 Bicycle 的數量 ?
+        int bicycleAmount = 0;
+        for (Transportation ts : transportations) {
+            if (ts instanceof Bicycle) {
+                bicycleAmount += ts.getAmount();
+            }
+        }
+        // 是否夠租 ?
+        if (bicycleAmount >= amount) {
+            // 租金區域變數
+            int rent = 0;
+            for (Transportation ts : transportations) {
+                if (ts instanceof Bicycle) {
+                    // 減去庫存
+                    ts.setAmount(ts.getAmount() - amount);
+                    // 累計租金
+                    rent += ts.getPrice() * amount;
+                }
+            }
+            // 將租金區域變數的值設定給 rent 物件變數
+            this.rent += rent;
+            return true;
+        } else {
+            return false;
+        }
+    }
     // 租飛機
+    public boolean rentAirplane(int amount) {
+        // 查 Airplane 的數量 ?
+        int airplaneAmount = 0;
+        for (Transportation ts : transportations) {
+            if (ts instanceof Airplane) {
+                airplaneAmount += ts.getAmount();
+            }
+        }
+        // 是否夠租 ?
+        if (airplaneAmount >= amount) {
+            // 租金區域變數
+            int rent = 0;
+            for (Transportation ts : transportations) {
+                if (ts instanceof Airplane) {
+                    // 減去庫存
+                    ts.setAmount(ts.getAmount() - amount);
+                    // 累計租金
+                    rent += ts.getPrice() * amount;
+                }
+            }
+            // 將租金區域變數的值設定給 rent 物件變數
+            this.rent += rent;
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     // 列印庫存
     public void print() {
