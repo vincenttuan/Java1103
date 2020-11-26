@@ -56,6 +56,10 @@ public class RentalCompany {
         }
     }
     
+    // 租腳踏車
+    
+    // 租飛機
+    
     // 列印庫存
     public void print() {
         for(Transportation ts : transportations) {
