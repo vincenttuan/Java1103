@@ -35,9 +35,10 @@ public class Main {
                 amount = amount - 2;
                 ts.setAmount(amount);
             }
-            
         }
         // 更新後的庫存資料
         System.out.println("更新後庫存:" + Arrays.toString(trans));
+        // 試問總租金是 ?
+        
     }
 }
