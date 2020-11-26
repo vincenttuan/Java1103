@@ -84,6 +84,7 @@ public class RentalCompany {
             return false;
         }
     }
+    
     // 租飛機
     public boolean rentAirplane(int amount) {
         // 查 Airplane 的數量 ?
