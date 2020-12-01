@@ -14,6 +14,6 @@ public class Overloading {
         System.out.println("double : " + (x + y));
     }
     public static void main(String[] args) {
-        
+        add(10, 20);
     }
 }
