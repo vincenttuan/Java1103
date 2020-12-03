@@ -19,7 +19,9 @@ public class PetStore {
         // 印出每一個寵物的總價
         System.out.println("\n印出每一個寵物的總價");
         service.printEachTotalPriceByPet(pets);
-        
+        // 印出最高價的寵物
+        System.out.println("印出最高價的寵物");
+        service.printMaxPriceByPet(pets);
         
     }
 }
