@@ -2,7 +2,7 @@ package com.ocp10;
 
 import java.math.BigInteger;
 
-public class Mobile implements Computer {
+public abstract class Mobile implements Computer {
 
     @Override
     public int add(int x, int y) {
@@ -10,11 +10,6 @@ public class Mobile implements Computer {
         BigInteger b2 = new BigInteger(y + "");
         BigInteger sum = b1.add(b2);
         return sum.intValue();
-    }
-
-    @Override
-    public String getName() {
-        return "手機";
     }
     
 }
