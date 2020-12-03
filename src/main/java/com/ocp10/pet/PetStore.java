@@ -15,7 +15,17 @@ public class PetStore {
         System.out.printf("Total price: %,d\n", totalPrice);
         int totalPriceByShiba = service.getPriceByShiba(pets);
         System.out.printf("Total price(Shiba) : %,d\n", totalPriceByShiba);
-        int totalPriceByPet = service.getPriceByPet(pets, EDog.class);
+        //------------------------------------------------------------
+        // 印出每一個寵物的總價
+        System.out.println("\n印出每一個寵物的總價");
+        Class[] clazzes = {Chihuahua.class, Shiba.class, EDog.class};
+        for(Class clazz : clazzes) {
+            String clazzName = clazz.getSimpleName();
+            int totalPriceByPet = service.getPriceByPet(pets, clazz);
+            System.out.printf("Total price(%s) : %,d\n", 
+                    clazzName, totalPriceByPet);
+        }
+        
         
     }
 }
