@@ -1,4 +1,4 @@
-package com.ocp10;
+package com.ocp10.computer;
 
 public class PersonalComputer implements Computer {
     public int add(int x, int y) {

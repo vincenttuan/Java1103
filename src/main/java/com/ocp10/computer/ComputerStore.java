@@ -1,4 +1,4 @@
-package com.ocp10;
+package com.ocp10.computer;
 
 public class ComputerStore {
     public static void main(String[] args) {
