@@ -10,5 +10,7 @@ public class PetStore {
         service.print(pets);
         int totalPrice = service.allPrice(pets);
         System.out.printf("Total price: %,d\n", totalPrice);
+        int totalPriceByShiba = service.getPriceByShiba(pets);
+        System.out.printf("Total price(Shiba) : %,d\n", totalPriceByShiba);
     }
 }
