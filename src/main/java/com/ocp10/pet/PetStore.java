@@ -1,6 +1,9 @@
 package com.ocp10.pet;
 
+import com.ocp10.pet.entity.Chihuahua;
+import com.ocp10.pet.entity.EDog;
 import com.ocp10.pet.entity.Pet;
+import com.ocp10.pet.entity.Shiba;
 import com.ocp10.pet.service.PetService;
 
 public class PetStore {
@@ -12,5 +15,7 @@ public class PetStore {
         System.out.printf("Total price: %,d\n", totalPrice);
         int totalPriceByShiba = service.getPriceByShiba(pets);
         System.out.printf("Total price(Shiba) : %,d\n", totalPriceByShiba);
+        int totalPriceByPet = service.getPriceByPet(pets, EDog.class);
+        
     }
 }
