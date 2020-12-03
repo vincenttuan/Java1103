@@ -19,4 +19,14 @@ public class PetService {
         };
         return pets;
     }
+    
+    // 取得所有寵物的價格
+    public int allPrice(Pet[] pets) {
+        int sum = 0;
+        for(Pet pet : pets) {
+            sum += pet.getPrice();
+        }
+        return sum;
+    }
+    
 }
