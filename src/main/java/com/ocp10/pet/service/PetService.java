@@ -29,4 +29,13 @@ public class PetService {
         return sum;
     }
     
+    // 印出寵物資料
+    public void print(Pet[] pets) {
+        for(Pet pet : pets) {
+            String className = pet.getClass().getSimpleName();
+            int price = pet.getPrice();
+            System.out.printf("%s 價格: %d  飲食:", className, price);
+            pet.eat();
+        }
+    }
 }
