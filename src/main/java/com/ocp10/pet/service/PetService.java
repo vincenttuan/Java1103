@@ -62,4 +62,15 @@ public class PetService {
         }
         return sum;
     }
+    
+    // 印出每一個寵物的總價
+    public void printEachTotalPriceByPet(Pet[] pets) {
+        Class[] clazzes = {Chihuahua.class, Shiba.class, EDog.class};
+        for(Class clazz : clazzes) {
+            String clazzName = clazz.getSimpleName();
+            int totalPriceByPet = getPriceByPet(pets, clazz);
+            System.out.printf("Total price(%s) : %,d\n", 
+                    clazzName, totalPriceByPet);
+        }
+    }
 }
