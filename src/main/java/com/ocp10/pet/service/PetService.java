@@ -38,4 +38,16 @@ public class PetService {
             pet.eat();
         }
     }
+    
+    // 查出所有柴犬的價格
+    public int getPriceByShiba(Pet[] pets) {
+        int sum = 0;
+        for(Pet pet : pets) {
+            String className = pet.getClass().getSimpleName();
+            if(className.equals("Shiba")) {
+                sum += pet.getPrice();
+            }
+        }
+        return sum;
+    }
 }
