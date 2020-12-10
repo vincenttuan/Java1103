@@ -15,4 +15,5 @@ public class Bar {
         Foo foo = new Foo();
         foo.printMe();
     }
+    
 }
