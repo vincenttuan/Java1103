@@ -8,7 +8,19 @@ public class Ball {
         this.price = price;
         this.color = color;
     }
+    
+    // 覆寫 equals 方法
 
+    @Override
+    public boolean equals(Object obj) {
+        Ball b = (Ball)obj;
+        if(b.price == price && b.color.equals(color)) {
+            return true;
+        }
+        return false;
+    }
+    
+    
     public int getPrice() {
         return price;
     }
