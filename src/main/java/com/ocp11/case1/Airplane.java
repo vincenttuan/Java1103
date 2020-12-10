@@ -1,4 +1,4 @@
-package com.ocp11;
+package com.ocp11.case1;
 
 public class Airplane implements Game {
 
