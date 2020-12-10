@@ -5,4 +5,7 @@ public interface Game {
     default int price() {
         return 99;
     }
+    default void copyRight() {
+        System.out.println("版權所有");
+    }
 }
