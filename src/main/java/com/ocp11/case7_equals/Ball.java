@@ -10,7 +10,6 @@ public class Ball {
     }
     
     // 覆寫 equals 方法
-
     @Override
     public boolean equals(Object obj) {
         Ball b = (Ball)obj;
