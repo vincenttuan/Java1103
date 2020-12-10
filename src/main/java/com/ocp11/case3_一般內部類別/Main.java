@@ -1,4 +1,4 @@
-package com.ocp11.case3;
+package com.ocp11.case3_一般內部類別;
 
 public class Main {
     public static void main(String[] args) {

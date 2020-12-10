@@ -1,4 +1,4 @@
-package com.ocp11.case3;
+package com.ocp11.case3_一般內部類別;
 
 public class Bar {
     int x = 1000;
