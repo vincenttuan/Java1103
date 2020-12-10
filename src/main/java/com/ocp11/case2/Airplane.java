@@ -1,6 +1,6 @@
 package com.ocp11.case2;
 
-public class Airplance extends Game {
+public class Airplane extends Game {
 
     @Override
     void play() {
