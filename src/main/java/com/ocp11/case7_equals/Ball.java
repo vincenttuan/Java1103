@@ -19,6 +19,15 @@ public class Ball {
         return false;
     }
     
+    // 覆寫 hashcode 方法
+
+    @Override
+    public int hashCode() {
+        // 公式: 2 個質數 + 或 * 上有比較的屬性值
+        return 7 * 11 * price + color.hashCode();
+    }
+    
+    
     
     public int getPrice() {
         return price;
