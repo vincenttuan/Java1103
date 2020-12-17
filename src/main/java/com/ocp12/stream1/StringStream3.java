@@ -9,6 +9,10 @@ public class StringStream3 {
         // {4, 6, 1, 12} = 23
         int sum = Stream.of(names).mapToInt(x -> x.length()).sum();
         System.out.println(sum);
-        
+        // 印出字串長度 <= 4 的長度各是多少 ?
+        Stream.of(names)                   // {"Java", "Python", "C", "Visual Basic"}
+                .mapToInt(x -> x.length()) // {4, 6, 1, 12}
+                .filter(x -> x <= 4)       // {4, 1}
+                .forEach(x -> System.out.println(x));
     }
 }
