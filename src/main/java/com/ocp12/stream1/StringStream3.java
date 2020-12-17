@@ -14,5 +14,10 @@ public class StringStream3 {
                 .mapToInt(x -> x.length()) // {4, 6, 1, 12}
                 .filter(x -> x <= 4)       // {4, 1}
                 .forEach(x -> System.out.println(x));
+        
+        Stream.of(names)                    // {"Java", "Python", "C", "Visual Basic"}
+                .mapToInt(String::length)   // {4, 6, 1, 12}
+                .filter(Util::isLessThan4)  // {4, 1}
+                .forEach(System.out::println);
     }
 }
