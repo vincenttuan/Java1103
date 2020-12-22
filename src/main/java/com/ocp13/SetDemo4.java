@@ -33,5 +33,18 @@ public class SetDemo4 {
                 .getAsDouble();
         System.out.println("平均: " + avg_english);
         System.out.println("3. 數學平均 (請同學自行撰寫)");
+        System.out.print("4. 國文最高分為何 : ");
+        int max_chinese = exams.stream()
+                .mapToInt(e -> e.getChinese())
+                .max()
+                .getAsInt();
+        System.out.println(max_chinese);
+        System.out.print("5. 國文最高分的人名為何 : ");
+        exams.stream()
+                .filter(e -> e.getChinese() == max_chinese)
+                .forEach(e -> System.out.print(e.getName() + ", "));
+        System.out.println();
+        System.out.print("6. 總成績最高的人名為何?是幾分? ");
+        
     }
 }
