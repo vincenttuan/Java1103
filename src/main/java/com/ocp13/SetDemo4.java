@@ -45,6 +45,13 @@ public class SetDemo4 {
                 .forEach(e -> System.out.print(e.getName() + ", "));
         System.out.println();
         System.out.print("6. 總成績最高的人名為何?是幾分? ");
-        
+        int max_score = exams.stream()
+                .mapToInt(e -> e.getChinese()+e.getEnglish()+e.getMath())
+                .max()
+                .getAsInt();
+        exams.stream()
+                .filter(e -> e.getChinese()+e.getEnglish()+e.getMath() == max_score)
+                .forEach(e -> System.out.print(e.getName() + ", "));
+        System.out.println(max_score);
     }
 }
