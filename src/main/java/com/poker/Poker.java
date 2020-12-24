@@ -31,7 +31,7 @@ public class Poker {
             name = "K";
             this.score = 0.5;
         } else {
-            name = score + "";
+            name = (int)score + "";
             this.score = score;
         }
     }
