@@ -47,5 +47,6 @@ public class Game {
                 break;
             }
         } while (true);
+        System.out.println("剩餘的牌: " + pokers);
     }
 }
