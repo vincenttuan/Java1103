@@ -1,11 +1,15 @@
 package com.poker;
 
+import static com.poker.PokerUtil.getPokers;
+import java.util.Collections;
+import java.util.List;
+import java.util.Queue;
+
 public class Game {
     public static void main(String[] args) {
-        Poker poker = new Poker();
-        poker.setColor("\u001B[31m");
-        poker.setName("A");
-        poker.setScore(1);
-        System.out.println(poker);
+        Queue<Poker> pokers = getPokers();
+        System.out.println(pokers);
+        Collections.shuffle((List)pokers);
+        System.out.println(pokers);
     }
 }
