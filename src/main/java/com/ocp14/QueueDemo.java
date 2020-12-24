@@ -20,9 +20,19 @@ public class QueueDemo {
         System.out.println(card1);
         System.out.println(card2);
         // 計算分數
-        
+        double score = getScore(card1, card2);
+        System.out.println(score);
         // 剩餘的牌
         System.out.println(pokers);
         
     }
+    
+    public static double getScore(String card1, String card2) {
+        return getScore(card1) + getScore(card2);
+    }
+    
+    public static double getScore(String card) {
+        return "JQK".contains(card) ? 0.5 : Double.parseDouble(card);
+    }
+    
 }
