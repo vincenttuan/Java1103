@@ -17,6 +17,10 @@ public class Game {
     public static void play(Queue<Poker> pokers) {
         List<Poker> myPokers = new LinkedList<>(); // 我手邊的牌
         do {
+            // 檢查手邊的牌
+            System.out.printf("你的牌是: %s 目前分數: %.1f \n", 
+                              myPokers, getScore(myPokers));
+            
             // 先判斷是否爆了 ?
             if(getScore(myPokers) > 10.5) {
                 System.out.println("爆了~");
@@ -34,8 +38,7 @@ public class Game {
             }
             // 是否要拿牌 ?
             Scanner sc = new Scanner(System.in);
-            System.out.printf("你的牌是: %s 目前分數: %.1f 是否要牌(y/n) ? ", 
-                              myPokers, getScore(myPokers));
+            System.out.print("是否要牌(y/n) ? ");
             String yn = sc.next();
             if(yn.equals("y")) {
                 Poker poker = pokers.poll();
