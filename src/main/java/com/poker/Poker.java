@@ -7,7 +7,11 @@ public class Poker {
 
     public Poker() {
     }
-
+    
+    public Poker(int score) {
+        this(score, "black");
+    }
+    
     public Poker(int score, String color) {
         this.score = score;
         if(color.equalsIgnoreCase("red")) {
