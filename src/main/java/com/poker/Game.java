@@ -12,10 +12,16 @@ public class Game {
     public static void main(String[] args) {
         Queue<Poker> pokers = getPokers();
         Collections.shuffle((List)pokers);
+        //ySystem.out.println(pokers);
         play(pokers);
     }
     public static void play(Queue<Poker> pokers) {
         List<Poker> myPokers = new LinkedList<>(); // 我手邊的牌
+        List<Poker> pcPokers = new LinkedList<>(); // PC的牌
+        // 莊家先拿一張牌
+        pcPokers.add(pokers.poll());
+        
+        // user
         do {
             // 檢查手邊的牌
             System.out.printf("你的牌是: %s 目前分數: %.1f \n", 
@@ -47,6 +53,24 @@ public class Game {
                 break;
             }
         } while (true);
+        
+        // pc
+        do {
+            if(getScore(pcPokers) > 10.5) {
+                System.out.println("PC 爆了");
+                break;
+            }
+            if(getScore(pcPokers) < 8) {
+                pcPokers.add(pokers.poll());
+            } else {
+                break;
+            }
+        } while (true);
+        
+        System.out.printf("User的牌是: %s 目前分數: %.1f \n", 
+                              myPokers, getScore(myPokers));
+        System.out.printf("PC的牌是: %s 目前分數: %.1f \n", 
+                              pcPokers, getScore(pcPokers));
         System.out.println("剩餘的牌: " + pokers);
     }
 }
