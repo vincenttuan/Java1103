@@ -16,5 +16,6 @@
             <artifactId>javafaker</artifactId>
             <version>0.12</version>
         </dependency>
+        
     </dependencies>
 </project>
