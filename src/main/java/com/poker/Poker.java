@@ -1,31 +1,41 @@
 package com.poker;
 
 public class Poker {
+
     private String name; // A~K
-    private int score; // 1~13
+    private double score; // 1~10, 0.5
     private String color = "\u001B[30m"; // 黑色 : "\u001B[30m" 紅色 :"\u001B[31m"
 
     public Poker() {
     }
-    
-    public Poker(int score) {
+
+    public Poker(double score) {
         this(score, "black");
     }
-    
-    public Poker(int score, String color) {
-        this.score = score;
-        if(color.equalsIgnoreCase("red")) {
+
+    public Poker(double score, String color) {
+
+        if (color.equalsIgnoreCase("red")) {
             this.color = "\u001B[31m";
         }
-        if(score == 1) name = "A";
-        else if(score == 11) name = "J";
-        else if(score == 12) name = "Q";
-        else if(score == 13) name = "K";
-        else name = score + "";
+        if (score == 1) {
+            name = "A";
+            this.score = 1;
+        } else if (score == 11) {
+            name = "J";
+            this.score = 0.5;
+        } else if (score == 12) {
+            name = "Q";
+            this.score = 0.5;
+        } else if (score == 13) {
+            name = "K";
+            this.score = 0.5;
+        } else {
+            name = score + "";
+            this.score = score;
+        }
     }
-    
-    
-    
+
     public String getName() {
         return name;
     }
@@ -34,11 +44,11 @@ public class Poker {
         this.name = name;
     }
 
-    public int getScore() {
+    public double getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(double score) {
         this.score = score;
     }
 
@@ -54,5 +64,5 @@ public class Poker {
     public String toString() {
         return color + name;
     }
-    
+
 }

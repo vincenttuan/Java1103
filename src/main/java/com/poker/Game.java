@@ -2,14 +2,23 @@ package com.poker;
 
 import static com.poker.PokerUtil.getPokers;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Scanner;
 
 public class Game {
     public static void main(String[] args) {
         Queue<Poker> pokers = getPokers();
-        System.out.println(pokers);
         Collections.shuffle((List)pokers);
-        System.out.println(pokers);
+        //System.out.println(pokers);
+        play(pokers);
+    }
+    public static void play(Queue<Poker> pokers) {
+        List<Poker> myPokers = new LinkedList<>(); // 我手邊的牌
+        do {            
+            Scanner sc = new Scanner(System.in);
+            //System.out.printf("你的牌是: 目前分數: 是否要牌(y/n) ? ", myPokers, );
+        } while (true);
     }
 }

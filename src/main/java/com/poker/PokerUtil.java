@@ -1,6 +1,7 @@
 package com.poker;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class PokerUtil {
@@ -18,5 +19,9 @@ public class PokerUtil {
             }
         }
         return pokers;
+    }
+    
+    public static double getScore(List<Poker> pokers) {
+        return pokers.stream().mapToDouble(p -> p.getScore()).sum();
     }
 }
