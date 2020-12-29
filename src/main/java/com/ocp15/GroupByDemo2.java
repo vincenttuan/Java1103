@@ -23,14 +23,17 @@ public class GroupByDemo2 {
         Map<String, Long> counting = fruits.stream()
                 .collect(Collectors.groupingBy(Fruit::getName, Collectors.counting()));
         System.out.println(counting);
+        
         // 每一種水果有幾個 ?
         Map<String, Integer> sum = fruits.stream()
                 .collect(Collectors.groupingBy(Fruit::getName, Collectors.summingInt(Fruit::getQty)));
         System.out.println(sum);
+        
         // 根據價格來分組
         Map<Integer, List<Fruit>> groupByPrice = fruits.stream()
                 .collect(Collectors.groupingBy(Fruit::getPrice));
         System.out.println(groupByPrice);
+        
         // 根據價格來分組(水果名不可重複)
         Map<Integer, Set<String>> groupByPrice2 = fruits.stream()
                 .collect(Collectors.groupingBy(Fruit::getPrice, 
