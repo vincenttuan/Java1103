@@ -26,6 +26,8 @@ public class ExceptionDemo2 {
             System.out.println("錯誤類型: " + e);
             System.out.println("錯誤原因: " + e.getMessage());
             play();
+        } finally {
+            System.out.println("遊戲結束");
         }
         
     }
