@@ -7,5 +7,13 @@ public class Power {
         int v = w / a;
         return v;
     }
+    public int getA(int w, int v) {
+        int a = w / v;
+        return a;
+    }
+    public int getW(int v, int a) {
+        int w = v * a;
+        return w;
+    }
     
 }
