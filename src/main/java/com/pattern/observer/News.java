@@ -17,7 +17,7 @@ public class News implements Subject {
 
     @Override
     public void notifyObserver(String data) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        observers.stream().forEach(o -> o.update(data));
     }
     
 }
