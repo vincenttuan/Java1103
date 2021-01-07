@@ -10,7 +10,7 @@ public class SiteDish extends Food {
     
     @Override
     public String getName() {
-        return name + " + " + food.getName();
+        return food.getName() + " + " + name;
     }
 
     @Override
