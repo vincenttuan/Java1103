@@ -1,4 +1,4 @@
-package com.ocp14;
+package com.ocp14_collection_list_map;
 
 import java.util.Collections;
 import java.util.LinkedList;

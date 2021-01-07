@@ -1,4 +1,4 @@
-package com.ocp13;
+package com.ocp13_collection_set;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;

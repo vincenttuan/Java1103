@@ -1,4 +1,4 @@
-package com.ocp16;
+package com.ocp16_exception;
 
 class Foo extends RuntimeException {
 }

@@ -1,4 +1,4 @@
-package com.ocp16;
+package com.ocp16_exception;
 
 public class LoginException extends Exception {
 

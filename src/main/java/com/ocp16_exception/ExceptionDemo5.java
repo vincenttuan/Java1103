@@ -1,4 +1,4 @@
-package com.ocp16;
+package com.ocp16_exception;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
