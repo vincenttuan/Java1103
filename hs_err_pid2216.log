@@ -1,0 +1,859 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 636336 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:389), pid=2216, tid=0x0000000000001138
+#
+# JRE version: OpenJDK Runtime Environment (8.0_232-b09) (build 1.8.0_232-b09)
+# Java VM: OpenJDK 64-Bit Server VM (25.232-b09 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000018634000):  JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=4408, stack(0x00000000193f0000,0x00000000194f0000)]
+
+Stack: [0x00000000193f0000,0x00000000194f0000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+Current CompileTask:
+C2:    846  670   !   4       sun.font.TrueTypeFont::getTableBuffer (199 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000002e17800 JavaThread "DestroyJavaVM" [_thread_blocked, id=6348, stack(0x0000000002cd0000,0x0000000002dd0000)]
+  0x0000000019b3c800 JavaThread "AWT-EventQueue-0" [_thread_in_native, id=2792, stack(0x000000001b850000,0x000000001b950000)]
+  0x0000000019a90800 JavaThread "AWT-Windows" daemon [_thread_in_native, id=1888, stack(0x000000001a3a0000,0x000000001a4a0000)]
+  0x0000000019a8c800 JavaThread "AWT-Shutdown" [_thread_blocked, id=3916, stack(0x000000001a2a0000,0x000000001a3a0000)]
+  0x0000000019a6b800 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=6168, stack(0x000000001a1a0000,0x000000001a2a0000)]
+  0x00000000186dc000 JavaThread "Service Thread" daemon [_thread_blocked, id=4516, stack(0x00000000196f0000,0x00000000197f0000)]
+  0x000000001864f800 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=4168, stack(0x00000000195f0000,0x00000000196f0000)]
+  0x0000000018638000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=3584, stack(0x00000000194f0000,0x00000000195f0000)]
+=>0x0000000018634000 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=4408, stack(0x00000000193f0000,0x00000000194f0000)]
+  0x0000000018644000 JavaThread "Attach Listener" daemon [_thread_blocked, id=7736, stack(0x00000000192f0000,0x00000000193f0000)]
+  0x0000000018643000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=8080, stack(0x00000000191f0000,0x00000000192f0000)]
+  0x0000000017aea800 JavaThread "Finalizer" daemon [_thread_blocked, id=5552, stack(0x00000000190f0000,0x00000000191f0000)]
+  0x0000000017ae7000 JavaThread "Reference Handler" daemon [_thread_blocked, id=6076, stack(0x0000000018ff0000,0x00000000190f0000)]
+
+Other Threads:
+  0x0000000017a27000 VMThread [stack: 0x0000000018ef0000,0x0000000018ff0000] [id=8472]
+  0x00000000186f5000 WatcherThread [stack: 0x00000000197f0000,0x00000000198f0000] [id=3236]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x0000000080a00000, size: 2038 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000100000000
+
+Heap:
+ PSYoungGen      total 38400K, used 17308K [0x00000000d5900000, 0x00000000d8380000, 0x0000000100000000)
+  eden space 33280K, 52% used [0x00000000d5900000,0x00000000d69e71c8,0x00000000d7980000)
+  from space 5120K, 0% used [0x00000000d7e80000,0x00000000d7e80000,0x00000000d8380000)
+  to   space 5120K, 0% used [0x00000000d7980000,0x00000000d7980000,0x00000000d7e80000)
+ ParOldGen       total 87552K, used 0K [0x0000000080a00000, 0x0000000085f80000, 0x00000000d5900000)
+  object space 87552K, 0% used [0x0000000080a00000,0x0000000080a00000,0x0000000085f80000)
+ Metaspace       used 11936K, capacity 12106K, committed 12288K, reserved 1060864K
+  class space    used 1332K, capacity 1413K, committed 1536K, reserved 1048576K
+
+Card table byte_map: [0x0000000012290000,0x0000000012690000] byte_map_base: 0x0000000011e8b000
+
+Marking Bits: (ParMarkBitMap*) 0x000000005b408170
+ Begin Bits: [0x0000000012d40000, 0x0000000014d18000)
+ End Bits:   [0x0000000014d18000, 0x0000000016cf0000)
+
+Polling page: 0x0000000000b00000
+
+CodeCache: size=245760Kb used=2735Kb max_used=2742Kb free=243024Kb
+ bounds [0x0000000002ed0000, 0x0000000003180000, 0x0000000011ed0000]
+ total_blobs=1162 nmethods=694 adapters=382
+ compilation: enabled
+
+Compilation events (250 events):
+Event: 0.661 Thread 0x000000001864f800 nmethod 562 0x0000000003113790 code [0x0000000003113a60, 0x0000000003114f18]
+Event: 0.661 Thread 0x000000001864f800  563   !   3       sun.font.SunFontManager::addToPool (131 bytes)
+Event: 0.661 Thread 0x000000001864f800 nmethod 563 0x00000000031155d0 code [0x0000000003115780, 0x00000000031160a8]
+Event: 0.661 Thread 0x000000001864f800  564   !   3       sun.font.TrueTypeFont::init (489 bytes)
+Event: 0.663 Thread 0x000000001864f800 nmethod 564 0x0000000003116690 code [0x0000000003116bc0, 0x00000000031196b8]
+Event: 0.663 Thread 0x000000001864f800  565       3       java.util.concurrent.ConcurrentHashMap::containsKey (14 bytes)
+Event: 0.663 Thread 0x000000001864f800 nmethod 565 0x000000000311b110 code [0x000000000311b280, 0x000000000311b468]
+Event: 0.663 Thread 0x000000001864f800  566       3       java.lang.StringBuilder::<init> (18 bytes)
+Event: 0.663 Thread 0x000000001864f800 nmethod 566 0x000000000311b510 code [0x000000000311b6a0, 0x000000000311bb68]
+Event: 0.664 Thread 0x000000001864f800  567       3       java.nio.charset.CharsetDecoder::flush (49 bytes)
+Event: 0.665 Thread 0x000000001864f800 nmethod 567 0x000000000311bd50 code [0x000000000311bee0, 0x000000000311c2d8]
+Event: 0.678 Thread 0x000000001864f800  568       3       sun.nio.cs.UnicodeDecoder::implReset (9 bytes)
+Event: 0.678 Thread 0x000000001864f800 nmethod 568 0x000000000311c410 code [0x000000000311c560, 0x000000000311c6b0]
+Event: 0.681 Thread 0x000000001864f800  569       3       java.nio.ByteBuffer::get (54 bytes)
+Event: 0.682 Thread 0x000000001864f800 nmethod 569 0x000000000311c710 code [0x000000000311c8c0, 0x000000000311ce88]
+Event: 0.684 Thread 0x000000001864f800  570       3       java.util.concurrent.ConcurrentHashMap::<init> (5 bytes)
+Event: 0.684 Thread 0x000000001864f800 nmethod 570 0x000000000311d190 code [0x000000000311d300, 0x000000000311d510]
+Event: 0.686 Thread 0x000000001864f800  571  s!   3       sun.font.TrueTypeFont::open (170 bytes)
+Event: 0.687 Thread 0x000000001864f800 nmethod 571 0x000000000311d5d0 code [0x000000000311d960, 0x000000000311fcb8]
+Event: 0.687 Thread 0x000000001864f800  573       3       sun.font.TrueTypeFont::getWidth (19 bytes)
+Event: 0.687 Thread 0x000000001864f800 nmethod 573 0x0000000003121010 code [0x0000000003121180, 0x0000000003121390]
+Event: 0.687 Thread 0x000000001864f800  572  s    3       sun.font.TrueTypeFont::close (8 bytes)
+Event: 0.687 Thread 0x000000001864f800 nmethod 572 0x0000000003121450 code [0x00000000031215c0, 0x00000000031218a8]
+Event: 0.687 Thread 0x000000001864f800  574       3       sun.font.FontUtilities::debugFonts (4 bytes)
+Event: 0.687 Thread 0x000000001864f800 nmethod 574 0x0000000003121990 code [0x0000000003121ae0, 0x0000000003121c30]
+Event: 0.688 Thread 0x000000001864f800  575       3       java.io.FileDescriptor::<init> (17 bytes)
+Event: 0.688 Thread 0x000000001864f800 nmethod 575 0x0000000003121c90 code [0x0000000003121de0, 0x0000000003121fb0]
+Event: 0.688 Thread 0x000000001864f800  576  s    3       java.io.FileDescriptor::attach (73 bytes)
+Event: 0.689 Thread 0x000000001864f800 nmethod 576 0x0000000003122050 code [0x0000000003122260, 0x0000000003122ec8]
+Event: 0.689 Thread 0x000000001864f800  577       1       java.nio.DirectByteBuffer::address (5 bytes)
+Event: 0.689 Thread 0x000000001864f800 nmethod 577 0x0000000003123510 code [0x0000000003123660, 0x0000000003123770]
+Event: 0.690 Thread 0x000000001864f800  578       3       java.nio.HeapByteBuffer::asShortBuffer (54 bytes)
+Event: 0.690 Thread 0x000000001864f800 nmethod 578 0x00000000031237d0 code [0x0000000003123980, 0x0000000003123f98]
+Event: 0.690 Thread 0x000000001864f800  579       3       java.nio.ByteBufferAsShortBufferB::<init> (22 bytes)
+Event: 0.690 Thread 0x000000001864f800 nmethod 579 0x0000000003124250 code [0x00000000031243c0, 0x0000000003124688]
+Event: 0.690 Thread 0x000000001864f800  580       3       java.nio.ShortBuffer::<init> (12 bytes)
+Event: 0.690 Thread 0x000000001864f800 nmethod 580 0x0000000003124810 code [0x0000000003124980, 0x0000000003124ba8]
+Event: 0.690 Thread 0x000000001864f800  581       3       sun.font.TrueTypeFont::<init> (11 bytes)
+Event: 0.690 Thread 0x000000001864f800 nmethod 581 0x0000000003124c90 code [0x0000000003124e00, 0x0000000003124f88]
+Event: 0.690 Thread 0x000000001864f800  582       3       java.nio.HeapByteBuffer::getShort (18 bytes)
+Event: 0.691 Thread 0x000000001864f800 nmethod 582 0x0000000003125050 code [0x0000000003125220, 0x0000000003125968]
+Event: 0.692 Thread 0x000000001864f800  583       3       sun.font.Font2D::setRank (6 bytes)
+Event: 0.692 Thread 0x000000001864f800 nmethod 583 0x0000000003125ed0 code [0x0000000003126020, 0x0000000003126170]
+Event: 0.692 Thread 0x000000001864f800  584       3       sun.font.FontFamily::getFamily (17 bytes)
+Event: 0.692 Thread 0x000000001864f800 nmethod 584 0x00000000031261d0 code [0x0000000003126360, 0x00000000031266b8]
+Event: 0.692 Thread 0x000000001864f800  585  s!   3       java.io.FileDescriptor::closeAll (215 bytes)
+Event: 0.693 Thread 0x000000001864f800 nmethod 585 0x00000000031267d0 code [0x0000000003126a40, 0x0000000003127cf8]
+Event: 0.693 Thread 0x000000001864f800  586       3       sun.font.FontFamily::setFont (337 bytes)
+Event: 0.695 Thread 0x000000001864f800 nmethod 586 0x0000000003128690 code [0x0000000003128c40, 0x000000000312c548]
+Event: 0.695 Thread 0x000000001864f800  589       3       sun.font.TrueTypeFont::getLCIDFromLocale (89 bytes)
+Event: 0.695 Thread 0x000000001864f800 nmethod 589 0x000000000312db50 code [0x000000000312dd40, 0x000000000312e768]
+Event: 0.695 Thread 0x000000001864f800  587       3       sun.font.FontFamily::preferredWidth (216 bytes)
+Event: 0.696 Thread 0x0000000018634000  591       4       java.nio.Buffer::limit (62 bytes)
+Event: 0.697 Thread 0x000000001864f800 nmethod 587 0x000000000312ea50 code [0x000000000312ef40, 0x00000000031322a8]
+Event: 0.697 Thread 0x000000001864f800  590   !   3       sun.font.SunFontManager::registerFontFile (282 bytes)
+Event: 0.697 Thread 0x0000000018634000 nmethod 591 0x0000000003136450 code [0x00000000031365a0, 0x0000000003136678]
+Event: 0.699 Thread 0x000000001864f800 nmethod 590 0x0000000003136750 code [0x0000000003136b80, 0x0000000003139318]
+Event: 0.699 Thread 0x000000001864f800  588   !   3       sun.nio.ch.FileChannelImpl::implCloseChannel (132 bytes)
+Event: 0.699 Thread 0x000000001864f800 nmethod 588 0x0000000003134b10 code [0x0000000003134d80, 0x0000000003135e18]
+Event: 0.700 Thread 0x000000001864f800  592       1       sun.font.FontUtilities::isLogging (4 bytes)
+Event: 0.700 Thread 0x000000001864f800 nmethod 592 0x0000000003134850 code [0x00000000031349a0, 0x0000000003134ab0]
+Event: 0.704 Thread 0x000000001864f800  593  s!   3       sun.font.TrueTypeFont$TTDisposerRecord::dispose (40 bytes)
+Event: 0.704 Thread 0x000000001864f800 nmethod 593 0x0000000003134110 code [0x0000000003134280, 0x0000000003134708]
+Event: 0.704 Thread 0x000000001864f800  594   !   3       java.io.RandomAccessFile::getChannel (44 bytes)
+Event: 0.704 Thread 0x000000001864f800 nmethod 594 0x0000000003133990 code [0x0000000003133b00, 0x0000000003133f88]
+Event: 0.708 Thread 0x000000001864f800  595       3       sun.font.Font2D::<init> (38 bytes)
+Event: 0.708 Thread 0x000000001864f800 nmethod 595 0x000000000313ab90 code [0x000000000313ad40, 0x000000000313b2f0]
+Event: 0.708 Thread 0x000000001864f800  596       3       sun.font.Font2DHandle::<init> (10 bytes)
+Event: 0.709 Thread 0x000000001864f800 nmethod 596 0x000000000313b590 code [0x000000000313b6e0, 0x000000000313b8b0]
+Event: 0.714 Thread 0x000000001864f800  598       3       sun.font.FileFont::<init> (12 bytes)
+Event: 0.714 Thread 0x000000001864f800 nmethod 598 0x000000000313bd10 code [0x000000000313bea0, 0x000000000313c208]
+Event: 0.714 Thread 0x000000001864f800  599       3       sun.font.PhysicalFont::<init> (27 bytes)
+Event: 0.714 Thread 0x000000001864f800 nmethod 599 0x000000000313c3d0 code [0x000000000313c540, 0x000000000313c848]
+Event: 0.714 Thread 0x000000001864f800  600       3       sun.font.TrueTypeFont$TTDisposerRecord::<init> (5 bytes)
+Event: 0.714 Thread 0x000000001864f800 nmethod 600 0x000000000313c990 code [0x000000000313cb00, 0x000000000313cd30]
+Event: 0.714 Thread 0x000000001864f800  601       3       sun.font.TrueTypeFont$TTDisposerRecord::<init> (10 bytes)
+Event: 0.714 Thread 0x0000000018634000  604       4       sun.font.TrueTypeFont::getDirectoryEntry (38 bytes)
+Event: 0.714 Thread 0x000000001864f800 nmethod 601 0x000000000313ce10 code [0x000000000313cf60, 0x000000000313d130]
+Event: 0.714 Thread 0x000000001864f800  602       3       sun.font.TrueTypeFont::verify (7 bytes)
+Event: 0.715 Thread 0x000000001864f800 nmethod 602 0x000000000313d1d0 code [0x000000000313d340, 0x000000000313d4c8]
+Event: 0.715 Thread 0x000000001864f800  603       3       java.nio.channels.FileChannel::<init> (5 bytes)
+Event: 0.715 Thread 0x000000001864f800 nmethod 603 0x000000000313d550 code [0x000000000313d6c0, 0x000000000313d9b0]
+Event: 0.716 Thread 0x0000000018638000  605       4       java.lang.AbstractStringBuilder::append (50 bytes)
+Event: 0.717 Thread 0x0000000018634000 nmethod 604 0x0000000003140850 code [0x00000000031409a0, 0x0000000003140b18]
+Event: 0.717 Thread 0x0000000018634000  606       4       java.lang.ThreadLocal::get (38 bytes)
+Event: 0.717 Thread 0x000000001864f800  607   !   3       java.io.RandomAccessFile::close (62 bytes)
+Event: 0.717 Thread 0x000000001864f800 nmethod 607 0x000000000313fad0 code [0x000000000313fc60, 0x00000000031402d8]
+Event: 0.717 Thread 0x000000001864f800  612       3       sun.awt.SunToolkit::getStartupLocale (146 bytes)
+Event: 0.718 Thread 0x0000000018634000 nmethod 606 0x000000000313e190 code [0x000000000313e2e0, 0x000000000313e408]
+Event: 0.718 Thread 0x000000001864f800 nmethod 612 0x0000000003140c50 code [0x0000000003140ec0, 0x0000000003141e78]
+Event: 0.718 Thread 0x0000000018634000  613       4       java.lang.ThreadLocal$ThreadLocalMap::getEntry (42 bytes)
+Event: 0.718 Thread 0x000000001864f800  608       3       java.io.RandomAccessFile$1::<init> (10 bytes)
+Event: 0.718 Thread 0x000000001864f800 nmethod 608 0x000000000313ddd0 code [0x000000000313df20, 0x000000000313e0f0]
+Event: 0.718 Thread 0x000000001864f800  609       3       java.io.RandomAccessFile$1::close (8 bytes)
+Event: 0.718 Thread 0x000000001864f800 nmethod 609 0x000000000313f690 code [0x000000000313f800, 0x000000000313f9e8]
+Event: 0.718 Thread 0x000000001864f800  610       3       java.io.RandomAccessFile::access$000 (5 bytes)
+Event: 0.718 Thread 0x000000001864f800 nmethod 610 0x000000000313f310 code [0x000000000313f480, 0x000000000313f5e8]
+Event: 0.719 Thread 0x000000001864f800  614       3       sun.font.TrueTypeFont::setStyle (196 bytes)
+Event: 0.719 Thread 0x0000000018634000 nmethod 613 0x000000000313ef90 code [0x000000000313f0e0, 0x000000000313f1d8]
+Event: 0.719 Thread 0x000000001864f800 nmethod 614 0x0000000003144290 code [0x0000000003144480, 0x0000000003144ec8]
+Event: 0.719 Thread 0x000000001864f800  615       3       sun.font.TrueTypeFont::setCJKSupport (54 bytes)
+Event: 0.719 Thread 0x000000001864f800 nmethod 615 0x000000000313e950 code [0x000000000313eac0, 0x000000000313eec8]
+Event: 0.720 Thread 0x000000001864f800  616       3       java.util.Locale::toString (273 bytes)
+Event: 0.721 Thread 0x0000000018638000 nmethod 605 0x0000000003146cd0 code [0x0000000003146e40, 0x0000000003147288]
+Event: 0.722 Thread 0x000000001864f800 nmethod 616 0x0000000003147610 code [0x0000000003147a40, 0x000000000314ad08]
+Event: 0.722 Thread 0x000000001864f800  617       3       sun.font.FontFamily::closerWeight (182 bytes)
+Event: 0.723 Thread 0x000000001864f800 nmethod 617 0x000000000314c890 code [0x000000000314cc20, 0x000000000314eb18]
+Event: 0.726 Thread 0x0000000018634000  618       4       java.nio.Buffer::<init> (121 bytes)
+Event: 0.728 Thread 0x000000001864f800  619       3       sun.font.SunFontManager::addToFontList (534 bytes)
+Event: 0.729 Thread 0x0000000018634000 nmethod 618 0x0000000003142490 code [0x00000000031425e0, 0x0000000003142798]
+Event: 0.731 Thread 0x000000001864f800 nmethod 619 0x000000000314f7d0 code [0x000000000314fec0, 0x00000000031549d8]
+Event: 0.731 Thread 0x000000001864f800  620  s!   3       sun.nio.ch.NativeThreadSet::signalAndWait (134 bytes)
+Event: 0.732 Thread 0x000000001864f800 nmethod 620 0x0000000003143590 code [0x0000000003143740, 0x0000000003143f18]
+Event: 0.734 Thread 0x000000001864f800  621       3       sun.font.SunFontManager$T1Filter::accept (67 bytes)
+Event: 0.734 Thread 0x000000001864f800 nmethod 621 0x0000000003142b50 code [0x0000000003142d00, 0x00000000031433f8]
+Event: 0.734 Thread 0x000000001864f800  622       3       java.lang.CharacterData00::toLowerCase (1339 bytes)
+Event: 0.735 Thread 0x000000001864f800 nmethod 622 0x0000000003145750 code [0x0000000003145980, 0x00000000031469f0]
+Event: 0.735 Thread 0x000000001864f800  624       3       java.util.concurrent.ConcurrentHashMap$Traverser::advance (188 bytes)
+Event: 0.735 Thread 0x0000000018638000  628   !   4       sun.nio.cs.UnicodeDecoder::decodeLoop (326 bytes)
+Event: 0.735 Thread 0x000000001864f800 nmethod 624 0x0000000003156e10 code [0x0000000003157000, 0x0000000003157c78]
+Event: 0.735 Thread 0x000000001864f800  625       3       java.util.concurrent.ConcurrentHashMap$BaseIterator::hasNext (13 bytes)
+Event: 0.735 Thread 0x000000001864f800 nmethod 625 0x000000000313e5d0 code [0x000000000313e720, 0x000000000313e8d0]
+Event: 0.735 Thread 0x000000001864f800  626       3       java.util.concurrent.ConcurrentHashMap$ValueIterator::next (34 bytes)
+Event: 0.735 Thread 0x000000001864f800 nmethod 626 0x0000000003158010 code [0x0000000003158180, 0x0000000003158458]
+Event: 0.735 Thread 0x000000001864f800  623       3       java.lang.CharacterData00::getProperties (32 bytes)
+Event: 0.735 Thread 0x000000001864f800 nmethod 623 0x0000000003158590 code [0x0000000003158700, 0x00000000031588f0]
+Event: 0.737 Thread 0x000000001864f800  629       3       java.util.HashMap$HashIterator::<init> (79 bytes)
+Event: 0.737 Thread 0x000000001864f800 nmethod 629 0x0000000003158ad0 code [0x0000000003158c40, 0x0000000003158fd0]
+Event: 0.739 Thread 0x000000001864f800  630       3       sun.nio.ch.FileChannelImpl::<init> (74 bytes)
+Event: 0.739 Thread 0x000000001864f800 nmethod 630 0x0000000003159150 code [0x0000000003159320, 0x0000000003159b30]
+Event: 0.740 Thread 0x000000001864f800  631       1       java.nio.charset.CharsetDecoder::implFlush (4 bytes)
+Event: 0.740 Thread 0x000000001864f800 nmethod 631 0x000000000313dad0 code [0x000000000313dc20, 0x000000000313dd30]
+Event: 0.742 Thread 0x000000001864f800  632       1       sun.nio.cs.UnicodeDecoder::implReset (9 bytes)
+Event: 0.742 Thread 0x000000001864f800 nmethod 632 0x000000000315d090 code [0x000000000315d1e0, 0x000000000315d2f0]
+Event: 0.742 Thread 0x0000000018638000 nmethod 628 0x000000000315d350 code [0x000000000315d4c0, 0x000000000315d938]
+Event: 0.743 Thread 0x000000001864f800  633       3       java.util.HashMap::<init> (11 bytes)
+Event: 0.743 Thread 0x000000001864f800 nmethod 633 0x000000000315cc50 code [0x000000000315cdc0, 0x000000000315cfd0]
+Event: 0.743 Thread 0x000000001864f800  634       3       sun.font.TrueTypeFont::initAllNames (177 bytes)
+Event: 0.744 Thread 0x000000001864f800 nmethod 634 0x000000000315abd0 code [0x000000000315ae60, 0x000000000315be58]
+Event: 0.744 Thread 0x000000001864f800  635   !   3       sun.font.TrueTypeFont$1::run (20 bytes)
+Event: 0.744 Thread 0x000000001864f800 nmethod 635 0x000000000315a4d0 code [0x000000000315a660, 0x000000000315a9d8]
+Event: 0.744 Thread 0x000000001864f800  636       3       java.io.RandomAccessFile::<init> (22 bytes)
+Event: 0.744 Thread 0x000000001864f800 nmethod 636 0x000000000315de50 code [0x000000000315dfc0, 0x000000000315e258]
+Event: 0.744 Thread 0x000000001864f800  637       3       java.io.RandomAccessFile::<init> (248 bytes)
+Event: 0.746 Thread 0x000000001864f800 nmethod 637 0x000000000315e350 code [0x000000000315e660, 0x000000000315fff8]
+Event: 0.746 Thread 0x000000001864f800  640       3       java.lang.reflect.Array::newInstance (6 bytes)
+Event: 0.747 Thread 0x000000001864f800 nmethod 640 0x000000000315a150 code [0x000000000315a2c0, 0x000000000315a428]
+Event: 0.747 Thread 0x000000001864f800  638       3       java.io.RandomAccessFile::open (7 bytes)
+Event: 0.747 Thread 0x000000001864f800 nmethod 638 0x0000000003160a50 code [0x0000000003160bc0, 0x0000000003160d48]
+Event: 0.747 Thread 0x000000001864f800  641   !   3       sun.nio.ch.FileChannelImpl::size (239 bytes)
+Event: 0.748 Thread 0x000000001864f800 nmethod 641 0x0000000003160dd0 code [0x0000000003161020, 0x0000000003161f18]
+Event: 0.748 Thread 0x000000001864f800  642       3       sun.nio.ch.FileDispatcherImpl::size (5 bytes)
+Event: 0.748 Thread 0x000000001864f800 nmethod 642 0x0000000003162650 code [0x00000000031627c0, 0x0000000003162948]
+Event: 0.748 Thread 0x000000001864f800  644       3       sun.nio.ch.IOStatus::normalize (12 bytes)
+Event: 0.748 Thread 0x000000001864f800 nmethod 644 0x00000000031629d0 code [0x0000000003162b20, 0x0000000003162cb0]
+Event: 0.748 Thread 0x0000000018634000  645       4       java.nio.channels.spi.AbstractInterruptibleChannel::begin (48 bytes)
+Event: 0.751 Thread 0x000000001864f800  646       3       java.util.HashSet::iterator (13 bytes)
+Event: 0.751 Thread 0x0000000018634000 nmethod 645 0x0000000003165c90 code [0x0000000003165e00, 0x00000000031661a8]
+Event: 0.751 Thread 0x0000000018638000  647   !   4       sun.nio.ch.NativeThreadSet::add (155 bytes)
+Event: 0.751 Thread 0x000000001864f800 nmethod 646 0x0000000003165750 code [0x00000000031658c0, 0x0000000003165b98]
+Event: 0.751 Thread 0x0000000018634000  648   !   4       sun.nio.ch.NativeThreadSet::remove (50 bytes)
+Event: 0.752 Thread 0x000000001864f800  649       3       java.util.Locale::getLanguage (8 bytes)
+Event: 0.752 Thread 0x000000001864f800 nmethod 649 0x0000000003165350 code [0x00000000031654a0, 0x0000000003165690]
+Event: 0.752 Thread 0x000000001864f800  650   !   3       sun.nio.cs.UnicodeDecoder::decodeLoop (326 bytes)
+Event: 0.753 Thread 0x0000000018634000 nmethod 648 0x0000000003163910 code [0x0000000003163a60, 0x0000000003163cf8]
+Event: 0.753 Thread 0x0000000018634000  652       4       java.nio.Buffer::hasRemaining (17 bytes)
+Event: 0.753 Thread 0x0000000018638000 nmethod 647 0x0000000003163310 code [0x0000000003163460, 0x0000000003163738]
+Event: 0.753 Thread 0x0000000018638000  651       4       sun.nio.cs.UnicodeDecoder::decode (24 bytes)
+Event: 0.753 Thread 0x0000000018634000 nmethod 652 0x0000000003133790 code [0x00000000031338c0, 0x0000000003133938]
+Event: 0.753 Thread 0x0000000018638000 nmethod 651 0x00000000031630d0 code [0x0000000003163200, 0x0000000003163298]
+Event: 0.753 Thread 0x000000001864f800 nmethod 650 0x0000000003167d10 code [0x0000000003168080, 0x0000000003169f58]
+Event: 0.753 Thread 0x000000001864f800  653       3       java.lang.String::toLowerCase (439 bytes)
+Event: 0.754 Thread 0x000000001864f800 nmethod 653 0x000000000316ac10 code [0x000000000316af40, 0x000000000316c7b8]
+Event: 0.759 Thread 0x0000000018634000  654       4       java.util.HashMap$HashIterator::hasNext (13 bytes)
+Event: 0.759 Thread 0x0000000018634000 nmethod 654 0x0000000003145190 code [0x00000000031452c0, 0x0000000003145338]
+Event: 0.760 Thread 0x000000001864f800  655       3       java.util.AbstractCollection::toArray (147 bytes)
+Event: 0.760 Thread 0x000000001864f800 nmethod 655 0x00000000031663d0 code [0x0000000003166640, 0x0000000003167798]
+Event: 0.760 Thread 0x000000001864f800  656       3       java.util.HashMap::keySet (25 bytes)
+Event: 0.760 Thread 0x000000001864f800 nmethod 656 0x0000000003164cd0 code [0x0000000003164e40, 0x00000000031651d0]
+Event: 0.760 Thread 0x000000001864f800  657       3       java.util.HashMap$KeySet::iterator (12 bytes)
+Event: 0.761 Thread 0x000000001864f800 nmethod 657 0x0000000003164810 code [0x0000000003164980, 0x0000000003164be8]
+Event: 0.761 Thread 0x000000001864f800  658       3       java.util.HashMap$KeyIterator::<init> (11 bytes)
+Event: 0.761 Thread 0x000000001864f800 nmethod 658 0x0000000003162d10 code [0x0000000003162e80, 0x0000000003163028]
+Event: 0.761 Thread 0x000000001864f800  659       3       java.util.HashMap$KeySet::<init> (10 bytes)
+Event: 0.761 Thread 0x000000001864f800 nmethod 659 0x0000000003164310 code [0x0000000003164480, 0x0000000003164710]
+Event: 0.765 Thread 0x0000000018634000  660       4       java.nio.ByteBuffer::<init> (45 bytes)
+Event: 0.766 Thread 0x0000000018638000  661   !   4       sun.nio.cs.UnicodeDecoder::decodeLoop (326 bytes)
+Event: 0.767 Thread 0x0000000018634000 nmethod 660 0x0000000003170450 code [0x00000000031705a0, 0x00000000031707b8]
+Event: 0.768 Thread 0x000000001864f800  662       3       java.util.HashSet::<init> (16 bytes)
+Event: 0.769 Thread 0x000000001864f800 nmethod 662 0x000000000316fcd0 code [0x000000000316fe60, 0x0000000003170270]
+Event: 0.769 Thread 0x000000001864f800  663       3       java.util.HashSet::size (8 bytes)
+Event: 0.769 Thread 0x000000001864f800 nmethod 663 0x0000000003163e50 code [0x0000000003163fa0, 0x0000000003164190]
+Event: 0.770 Thread 0x0000000018634000  664       4       java.util.HashMap$HashIterator::nextNode (100 bytes)
+Event: 0.772 Thread 0x0000000018638000 nmethod 661 0x000000000316dcd0 code [0x000000000316de40, 0x000000000316e2d8]
+Event: 0.775 Thread 0x0000000018634000 nmethod 664 0x000000000316d850 code [0x000000000316d9a0, 0x000000000316db98]
+Event: 0.782 Thread 0x000000001864f800  665   !   3       sun.font.TrueTypeFont::getAllFullNames (33 bytes)
+Event: 0.782 Thread 0x000000001864f800 nmethod 665 0x000000000316f010 code [0x000000000316f1e0, 0x000000000316f958]
+Event: 0.782 Thread 0x000000001864f800  667  s    3       sun.font.FontFamily::addLocaleNames (45 bytes)
+Event: 0.783 Thread 0x000000001864f800 nmethod 667 0x00000000031718d0 code [0x0000000003171aa0, 0x00000000031722d8]
+Event: 0.783 Thread 0x000000001864f800  666   !   3       sun.font.TrueTypeFont::getAllFamilyNames (33 bytes)
+Event: 0.783 Thread 0x000000001864f800 nmethod 666 0x0000000003170c10 code [0x0000000003170de0, 0x0000000003171558]
+Event: 0.783 Thread 0x0000000018638000  668       4       java.util.HashMap::resize (359 bytes)
+Event: 0.784 Thread 0x0000000018634000  669       4       java.nio.channels.spi.AbstractInterruptibleChannel::end (50 bytes)
+Event: 0.786 Thread 0x0000000018634000 nmethod 669 0x000000000316ea10 code [0x000000000316eb60, 0x000000000316ee38]
+Event: 0.790 Thread 0x0000000018638000 nmethod 668 0x0000000003173990 code [0x0000000003173b20, 0x0000000003174068]
+Event: 0.795 Thread 0x0000000018634000  670   !   4       sun.font.TrueTypeFont::getTableBuffer (199 bytes)
+Event: 0.805 Thread 0x0000000018638000  671       4       java.util.HashMap$KeyIterator::next (8 bytes)
+Event: 0.808 Thread 0x0000000018638000 nmethod 671 0x0000000003175050 code [0x00000000031751a0, 0x0000000003175398]
+Event: 0.811 Thread 0x000000001864f800  673       3       java.nio.Bits::getCharB (16 bytes)
+Event: 0.811 Thread 0x0000000018638000  675       4       java.nio.Buffer::nextGetIndex (31 bytes)
+Event: 0.812 Thread 0x000000001864f800 nmethod 673 0x0000000003173010 code [0x0000000003173180, 0x00000000031734d8]
+Event: 0.812 Thread 0x000000001864f800  674       3       java.nio.Bits::makeChar (12 bytes)
+Event: 0.812 Thread 0x000000001864f800 nmethod 674 0x0000000003172d10 code [0x0000000003172e60, 0x0000000003172fb0]
+Event: 0.812 Thread 0x000000001864f800  677       3       java.nio.ByteBufferAsCharBufferB::ix (9 bytes)
+Event: 0.812 Thread 0x000000001864f800 nmethod 677 0x0000000003172a10 code [0x0000000003172b60, 0x0000000003172cb0]
+Event: 0.812 Thread 0x000000001864f800  676       3       java.nio.ByteBufferAsCharBufferB::get (16 bytes)
+Event: 0.812 Thread 0x0000000018638000 nmethod 675 0x0000000003174390 code [0x00000000031744c0, 0x0000000003174558]
+Event: 0.812 Thread 0x0000000018638000  679       4       java.nio.Bits::getCharB (16 bytes)
+Event: 0.812 Thread 0x000000001864f800 nmethod 676 0x0000000003177910 code [0x0000000003177ac0, 0x00000000031780a8]
+Event: 0.812 Thread 0x000000001864f800  678       1       java.nio.ByteBufferAsCharBufferB::ix (9 bytes)
+Event: 0.812 Thread 0x000000001864f800 nmethod 678 0x0000000003172750 code [0x00000000031728a0, 0x00000000031729b0]
+Event: 0.813 Thread 0x0000000018638000 nmethod 679 0x0000000003176090 code [0x00000000031761e0, 0x00000000031762b8]
+Event: 0.813 Thread 0x0000000018638000  680       4       java.nio.ByteBufferAsCharBufferB::get (16 bytes)
+Event: 0.814 Thread 0x0000000018638000 nmethod 680 0x0000000003175650 code [0x00000000031757a0, 0x00000000031758f8]
+Event: 0.819 Thread 0x000000001864f800  682  s    3       sun.font.FontManagerFactory::getInstance (25 bytes)
+Event: 0.820 Thread 0x000000001864f800 nmethod 682 0x00000000031771d0 code [0x0000000003177360, 0x00000000031777e8]
+Event: 0.830 Thread 0x000000001864f800  683       3       java.util.ArrayList$Itr::next (66 bytes)
+Event: 0.830 Thread 0x000000001864f800 nmethod 683 0x0000000003176910 code [0x0000000003176ac0, 0x0000000003176f68]
+Event: 0.830 Thread 0x000000001864f800  684       3       java.util.ArrayList$Itr::checkForComodification (23 bytes)
+Event: 0.831 Thread 0x000000001864f800 nmethod 684 0x0000000003176410 code [0x0000000003176580, 0x00000000031767a8]
+Event: 0.835 Thread 0x000000001864f800  685       1       java.awt.Component::getPeer (5 bytes)
+Event: 0.836 Thread 0x000000001864f800 nmethod 685 0x0000000003179390 code [0x00000000031794e0, 0x00000000031795f0]
+Event: 0.836 Thread 0x000000001864f800  686       3       java.awt.Component::getTreeLock (4 bytes)
+Event: 0.836 Thread 0x000000001864f800 nmethod 686 0x0000000003179090 code [0x00000000031791e0, 0x0000000003179330]
+Event: 0.836 Thread 0x000000001864f800  687       1       javax.swing.plaf.synth.SynthContext::getComponent (5 bytes)
+Event: 0.836 Thread 0x000000001864f800 nmethod 687 0x0000000003178dd0 code [0x0000000003178f20, 0x0000000003179030]
+Event: 0.836 Thread 0x000000001864f800  688       3       javax.swing.GroupLayout$Spring::constrain (8 bytes)
+Event: 0.836 Thread 0x000000001864f800 nmethod 688 0x0000000003178990 code [0x0000000003178b00, 0x0000000003178d10]
+Event: 0.837 Thread 0x0000000018638000  689       4       java.lang.String::indexOf (166 bytes)
+Event: 0.842 Thread 0x0000000018638000 nmethod 689 0x000000000317e810 code [0x000000000317e960, 0x000000000317ee58]
+Event: 0.843 Thread 0x000000001864f800  691       1       java.net.URL::getHost (5 bytes)
+Event: 0.843 Thread 0x000000001864f800 nmethod 691 0x000000000317e550 code [0x000000000317e6a0, 0x000000000317e7b0]
+Event: 0.843 Thread 0x000000001864f800  692       3       sun.misc.URLClassPath$JarLoader::findResource (18 bytes)
+Event: 0.843 Thread 0x000000001864f800 nmethod 692 0x000000000317e050 code [0x000000000317e1c0, 0x000000000317e458]
+Event: 0.843 Thread 0x000000001864f800  693       1       java.net.URL::getPath (5 bytes)
+Event: 0.843 Thread 0x000000001864f800 nmethod 693 0x000000000317dd90 code [0x000000000317dee0, 0x000000000317dff0]
+Event: 0.843 Thread 0x000000001864f800  694       1       java.net.URL::getAuthority (5 bytes)
+Event: 0.843 Thread 0x000000001864f800 nmethod 694 0x000000000317dad0 code [0x000000000317dc20, 0x000000000317dd30]
+Event: 0.843 Thread 0x000000001864f800  695       1       java.net.URL::getFile (5 bytes)
+Event: 0.843 Thread 0x000000001864f800 nmethod 695 0x000000000317d810 code [0x000000000317d960, 0x000000000317da70]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (7 events):
+Event: 0.560 Thread 0x0000000019b3c800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000030726c0 method=java.lang.CharacterData.of(I)Ljava/lang/CharacterData; @ 4
+Event: 0.619 Thread 0x0000000019b3c800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x000000000304acd4 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 0.619 Thread 0x0000000019b3c800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x000000000304acd4 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 0.619 Thread 0x0000000019b3c800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x000000000304acd4 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 0.619 Thread 0x0000000019b3c800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x000000000304acd4 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 0.751 Thread 0x0000000019b3c800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000315d80c method=java.lang.Character.isSurrogate(C)Z @ 3
+Event: 0.752 Thread 0x0000000019b3c800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000030c9c88 method=java.lang.String.toLowerCase(Ljava/util/Locale;)Ljava/lang/String; @ 37
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (143 events):
+Event: 0.050 Thread 0x0000000002e17800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x00000000d5907cb8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.
+Event: 0.050 Thread 0x0000000002e17800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x00000000d5907fa0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 4014]
+Event: 0.184 Thread 0x0000000002e17800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d59d61b8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.184 Thread 0x0000000002e17800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d59d63c8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.184 Thread 0x0000000002e17800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d59da500) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.184 Thread 0x0000000002e17800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d59da710) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.184 Thread 0x0000000002e17800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d59dbdd0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.185 Thread 0x0000000002e17800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d59dbfe0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.202 Thread 0x0000000002e17800 Exception <a 'java/io/FileNotFoundException'> (0x00000000d59f1050) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 710]
+Event: 0.250 Thread 0x0000000002e17800 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x00000000d5b68d58) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\methodHandles.cpp, line 1167]
+Event: 0.251 Thread 0x0000000002e17800 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x00000000d5b760d8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\methodHandles.cpp, line 1167]
+Event: 0.288 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': sun/dc/DuctusRenderingEngine> (0x00000000d5c03058) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.334 Thread 0x0000000002e17800 Exception <a 'java/io/FileNotFoundException'> (0x00000000d5d11dc8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 710]
+Event: 0.350 Thread 0x0000000002e17800 Exception <a 'java/io/FileNotFoundException'> (0x00000000d5d22608) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 710]
+Event: 0.350 Thread 0x0000000002e17800 Exception <a 'java/lang/NullPointerException'> (0x00000000d5d22a58) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpreter\linkResolver.cpp, line 1185]
+Event: 0.359 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JArrowButton> (0x00000000d5d4a240) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.361 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ArrowButton> (0x00000000d5d4af78) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.361 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Button> (0x00000000d5d4b7b8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.362 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ToggleButton> (0x00000000d5d4bf00) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.362 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': RadioButton> (0x00000000d5d4c640) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.362 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': CheckBox> (0x00000000d5d4cdd0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.362 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ColorChooser> (0x00000000d5d4d610) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.362 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ColorChooser> (0x00000000d5d4ddf8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.362 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ColorChooser> (0x00000000d5d4e6e8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.363 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ComboBox> (0x00000000d5d4f060) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.363 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ComboBox> (0x00000000d5d4f7f0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.363 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ComboBox> (0x00000000d5d50070) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.364 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': FileChooser> (0x00000000d5d51688) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.364 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JInternalFrameTitlePane> (0x00000000d5d51b38) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.364 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': InternalFrameTitlePane> (0x00000000d5d51fe0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.365 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': InternalFrame> (0x00000000d5d52c70) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.365 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': InternalFrame> (0x00000000d5d53438) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.365 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JInternalFrameTitlePane> (0x00000000d5d537e8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.365 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': InternalFrameTitlePane> (0x00000000d5d53c90) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.365 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': InternalFrame> (0x00000000d5d544d8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.365 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JInternalFrameTitlePane> (0x00000000d5d54888) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.365 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': InternalFrameTitlePane> (0x00000000d5d54d30) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.365 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': InternalFrame> (0x00000000d5d55618) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.365 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JInternalFrameTitlePane> (0x00000000d5d559c8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.365 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': InternalFrameTitlePane> (0x00000000d5d55e70) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.365 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': InternalFrame> (0x00000000d5d56758) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.365 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JInternalFrameTitlePane> (0x00000000d5d56b08) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.365 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': InternalFrameTitlePane> (0x00000000d5d56fb0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.366 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': InternalFrame> (0x00000000d5d57898) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.366 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JInternalFrameTitlePane> (0x00000000d5d57c48) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.366 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': InternalFrameTitlePane> (0x00000000d5d580f0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.366 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JDesktopIcon> (0x00000000d5d585c0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.366 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': DesktopIcon> (0x00000000d5d58a50) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.366 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': DesktopPane> (0x00000000d5d59320) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.366 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Label> (0x00000000d5d59a48) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.367 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': List> (0x00000000d5d5a220) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.368 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': MenuBar> (0x00000000d5d5abc8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.368 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': MenuBar> (0x00000000d5d5b308) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.369 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Menu> (0x00000000d5d5ba00) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.369 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': MenuBar> (0x00000000d5d5c1c0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.369 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Menu> (0x00000000d5d5c750) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.369 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JMenuItemAccelerator> (0x00000000d5d5caf0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.369 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': MenuItemAccelerator> (0x00000000d5d5cf90) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.369 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': MenuItem> (0x00000000d5d5d630) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.369 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': MenuItem> (0x00000000d5d5ddb8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.369 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JMenuItemAccelerator> (0x00000000d5d5e158) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.369 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': MenuItemAccelerator> (0x00000000d5d5e5f8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.369 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': RadioButtonMenuItem> (0x00000000d5d5ed18) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.370 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': RadioButtonMenuItem> (0x00000000d5d5f4f8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.370 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JMenuItemAccelerator> (0x00000000d5d5f898) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.370 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': MenuItemAccelerator> (0x00000000d5d5fd38) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.370 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': CheckBoxMenuItem> (0x00000000d5d60450) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.370 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': CheckBoxMenuItem> (0x00000000d5d60c18) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.370 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JMenuItemAccelerator> (0x00000000d5d60fb8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.370 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': MenuItemAccelerator> (0x00000000d5d61458) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.370 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Menu> (0x00000000d5d61aa8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.370 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Menu> (0x00000000d5d621d0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.370 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JMenuItemAccelerator> (0x00000000d5d62570) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.370 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': MenuItemAccelerator> (0x00000000d5d62a10) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.371 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': PopupMenu> (0x00000000d5d632f8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.371 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JPopupMenuSeparator> (0x00000000d5d63798) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.371 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': PopupMenuSeparator> (0x00000000d5d63c38) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.373 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': OptionPane> (0x00000000d5d64948) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.373 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': OptionPane> (0x00000000d5d650f8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.373 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': OptionPane> (0x00000000d5d65918) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.373 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': OptionPane> (0x00000000d5d66180) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.374 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Panel> (0x00000000d5d66950) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.375 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ProgressBar> (0x00000000d5d670a0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.376 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Separator> (0x00000000d5d677f0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.377 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ScrollBar> (0x00000000d5d67fa8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.377 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ScrollBar> (0x00000000d5d68740) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.377 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ScrollBar> (0x00000000d5d68ef0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.377 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JScrollBarThumb> (0x00000000d5d69280) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.377 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ScrollBarThumb> (0x00000000d5d69718) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.378 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ScrollBar> (0x00000000d5d69ea0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.378 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JScrollBarTrack> (0x00000000d5d6a230) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.378 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ScrollBarTrack> (0x00000000d5d6a6c8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.378 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ScrollPane> (0x00000000d5d6b490) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.379 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Viewport> (0x00000000d5d6bc00) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.379 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Slider> (0x00000000d5d6c3a8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.379 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Slider> (0x00000000d5d6cb08) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.379 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JSliderThumb> (0x00000000d5d6ce88) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.379 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': SliderThumb> (0x00000000d5d6d318) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.379 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Slider> (0x00000000d5d6da78) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.379 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JSliderTrack> (0x00000000d5d6ddf8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.379 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': SliderTrack> (0x00000000d5d6e288) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.380 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Spinner> (0x00000000d5d6ee10) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.380 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Spinner> (0x00000000d5d6f580) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.380 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Spinner> (0x00000000d5d6fd98) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.380 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Panel> (0x00000000d5d70330) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.380 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Spinner> (0x00000000d5d70b40) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.380 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Spinner> (0x00000000d5d712f8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.381 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': SplitPane> (0x00000000d5d71da8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.381 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': SplitPane> (0x00000000d5d72538) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.381 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JSplitPaneDivider> (0x00000000d5d728d8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.381 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': SplitPaneDivider> (0x00000000d5d72d70) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.381 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': TabbedPane> (0x00000000d5d73520) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.381 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': TabbedPane> (0x00000000d5d73ca8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.381 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JTabbedPaneTab> (0x00000000d5d74038) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.381 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': TabbedPaneTab> (0x00000000d5d744d0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.381 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': TabbedPane> (0x00000000d5d74c68) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.381 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JTabbedPaneTabArea> (0x00000000d5d75008) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.381 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': TabbedPaneTabArea> (0x00000000d5d754a8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.382 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': TabbedPane> (0x00000000d5d75c40) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.382 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JTabbedPaneContent> (0x00000000d5d75fe0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.382 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': TabbedPaneContent> (0x00000000d5d76480) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.383 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Table> (0x00000000d5d76fa0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.383 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JTableHeader> (0x00000000d5d77600) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.383 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': TableHeader> (0x00000000d5d77a90) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.388 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': TextField> (0x00000000d5d79560) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.391 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': FormattedTextField> (0x00000000d5d79e48) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.391 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': PasswordField> (0x00000000d5d7a560) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.392 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': TextArea> (0x00000000d5d7acf0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.393 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': TextPane> (0x00000000d5d7b968) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.393 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': EditorPane> (0x00000000d5d7c010) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.393 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ToolBar> (0x00000000d5d7cba0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.393 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ToolBar> (0x00000000d5d7d2f0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.393 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Button> (0x00000000d5d7d888) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.393 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ToolBar> (0x00000000d5d7dfa8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.393 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ToggleButton> (0x00000000d5d7e558) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.393 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JToolBarSeparator> (0x00000000d5d7e9b8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.393 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ToolBarSeparator> (0x00000000d5d7ee50) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.394 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': ToolTip> (0x00000000d5d7f590) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.395 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Tree> (0x00000000d5d801b0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.395 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': Tree> (0x00000000d5d808f0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.395 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JTreeCell> (0x00000000d5d80c70) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.395 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': TreeCell> (0x00000000d5d810f8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.395 Thread 0x0000000002e17800 Exception <a 'java/lang/ClassNotFoundException': RootPane> (0x00000000d5d81b58) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+
+Events (250 events):
+Event: 0.569 loading class java/nio/IntBuffer
+Event: 0.569 loading class java/nio/IntBuffer done
+Event: 0.569 loading class java/nio/ByteBufferAsIntBufferB done
+Event: 0.569 loading class sun/font/TrueTypeFont$DirectoryEntry
+Event: 0.569 loading class sun/font/TrueTypeFont$DirectoryEntry done
+Event: 0.569 loading class java/nio/ByteBufferAsShortBufferB
+Event: 0.569 loading class java/nio/ShortBuffer
+Event: 0.569 loading class java/nio/ShortBuffer done
+Event: 0.569 loading class java/nio/ByteBufferAsShortBufferB done
+Event: 0.570 loading class sun/nio/cs/UTF_16$Decoder
+Event: 0.570 loading class sun/nio/cs/UnicodeDecoder
+Event: 0.570 loading class sun/nio/cs/UnicodeDecoder done
+Event: 0.570 loading class sun/nio/cs/UTF_16$Decoder done
+Event: 0.581 loading class java/io/RandomAccessFile$1
+Event: 0.581 loading class java/io/RandomAccessFile$1 done
+Event: 0.604 loading class sun/font/SunFontManager$4
+Event: 0.604 loading class sun/font/SunFontManager$4 done
+Event: 0.618 loading class sun/font/SunFontManager$10
+Event: 0.618 loading class sun/font/SunFontManager$10 done
+Event: 0.619 Thread 0x0000000019b3c800 Uncommon trap: trap_request=0xffffffde fr.pc=0x000000000304acd4
+Event: 0.619 Thread 0x0000000019b3c800 DEOPT PACKING pc=0x000000000304acd4 sp=0x000000001b94bd00
+Event: 0.619 Thread 0x0000000019b3c800 DEOPT UNPACKING pc=0x0000000002f1807b sp=0x000000001b94bc90 mode 2
+Event: 0.619 Thread 0x0000000019b3c800 Uncommon trap: trap_request=0xffffffde fr.pc=0x000000000304acd4
+Event: 0.619 Thread 0x0000000019b3c800 DEOPT PACKING pc=0x000000000304acd4 sp=0x000000001b94bd00
+Event: 0.619 Thread 0x0000000019b3c800 DEOPT UNPACKING pc=0x0000000002f1807b sp=0x000000001b94bc90 mode 2
+Event: 0.619 Thread 0x0000000019b3c800 Uncommon trap: trap_request=0xffffffde fr.pc=0x000000000304acd4
+Event: 0.619 Thread 0x0000000019b3c800 DEOPT PACKING pc=0x000000000304acd4 sp=0x000000001b94bd00
+Event: 0.619 Thread 0x0000000019b3c800 DEOPT UNPACKING pc=0x0000000002f1807b sp=0x000000001b94bc90 mode 2
+Event: 0.619 Thread 0x0000000019b3c800 Uncommon trap: trap_request=0xffffffde fr.pc=0x000000000304acd4
+Event: 0.619 Thread 0x0000000019b3c800 DEOPT PACKING pc=0x000000000304acd4 sp=0x000000001b94bd00
+Event: 0.619 Thread 0x0000000019b3c800 DEOPT UNPACKING pc=0x0000000002f1807b sp=0x000000001b94bc90 mode 2
+Event: 0.620 loading class sun/font/SunFontManager$11
+Event: 0.620 loading class sun/font/SunFontManager$11 done
+Event: 0.635 loading class java/util/LinkedHashMap$LinkedKeySet
+Event: 0.635 loading class java/util/LinkedHashMap$LinkedKeySet done
+Event: 0.635 loading class java/util/LinkedHashMap$LinkedKeyIterator
+Event: 0.635 loading class java/util/LinkedHashMap$LinkedKeyIterator done
+Event: 0.734 loading class java/util/concurrent/ConcurrentHashMap$ValueIterator
+Event: 0.734 loading class java/util/concurrent/ConcurrentHashMap$ValueIterator done
+Event: 0.751 Thread 0x0000000019b3c800 Uncommon trap: trap_request=0xffffff65 fr.pc=0x000000000315d80c
+Event: 0.751 Thread 0x0000000019b3c800 DEOPT PACKING pc=0x000000000315d80c sp=0x000000001b94c2e0
+Event: 0.752 Thread 0x0000000019b3c800 DEOPT UNPACKING pc=0x0000000002f1807b sp=0x000000001b94c208 mode 2
+Event: 0.752 Thread 0x0000000019b3c800 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00000000030c9c88
+Event: 0.752 Thread 0x0000000019b3c800 DEOPT PACKING pc=0x00000000030c9c88 sp=0x000000001b94c7e0
+Event: 0.752 Thread 0x0000000019b3c800 DEOPT UNPACKING pc=0x0000000002f1807b sp=0x000000001b94c748 mode 2
+Event: 0.808 loading class sun/font/FontStrikeDesc
+Event: 0.808 loading class sun/font/FontStrikeDesc done
+Event: 0.808 loading class sun/font/FileFontStrike
+Event: 0.809 loading class sun/font/FileFontStrike done
+Event: 0.809 loading class sun/font/FontScaler
+Event: 0.809 loading class sun/font/FontScaler done
+Event: 0.809 loading class sun/font/FreetypeFontScaler
+Event: 0.809 loading class sun/font/FreetypeFontScaler done
+Event: 0.810 loading class sun/font/TrueTypeGlyphMapper
+Event: 0.810 loading class sun/font/TrueTypeGlyphMapper done
+Event: 0.810 loading class sun/font/CMap
+Event: 0.810 loading class sun/font/CMap done
+Event: 0.810 loading class sun/font/CMap$NullCMapClass
+Event: 0.811 loading class sun/font/CMap$NullCMapClass done
+Event: 0.811 loading class sun/font/CMap$CMapFormat4
+Event: 0.811 loading class sun/font/CMap$CMapFormat4 done
+Event: 0.811 loading class java/nio/ByteBufferAsCharBufferB
+Event: 0.811 loading class java/nio/ByteBufferAsCharBufferB done
+Event: 0.811 Executing VM operation: Deoptimize
+Event: 0.811 Executing VM operation: Deoptimize done
+Event: 0.813 loading class sun/font/FontStrikeDisposer
+Event: 0.813 loading class sun/java2d/Disposer$PollDisposable
+Event: 0.813 loading class sun/java2d/Disposer$PollDisposable done
+Event: 0.813 loading class sun/font/FontStrikeDisposer done
+Event: 0.813 loading class sun/font/StrikeCache$SoftDisposerRef
+Event: 0.813 loading class sun/font/StrikeCache$DisposableStrike
+Event: 0.813 loading class sun/font/StrikeCache$DisposableStrike done
+Event: 0.813 loading class sun/font/StrikeCache$SoftDisposerRef done
+Event: 0.813 loading class sun/font/FontDesignMetrics$KeyReference
+Event: 0.813 loading class sun/font/FontDesignMetrics$KeyReference done
+Event: 0.815 loading class javax/swing/GroupLayout$1
+Event: 0.815 loading class javax/swing/GroupLayout$1 done
+Event: 0.815 loading class java/awt/Component$BaselineResizeBehavior
+Event: 0.815 loading class java/awt/Component$BaselineResizeBehavior done
+Event: 0.816 loading class javax/swing/LayoutStyle
+Event: 0.816 loading class javax/swing/LayoutStyle done
+Event: 0.816 loading class sun/swing/DefaultLayoutStyle
+Event: 0.816 loading class sun/swing/DefaultLayoutStyle done
+Event: 0.816 loading class sun/font/CompositeStrike
+Event: 0.816 loading class sun/font/CompositeStrike done
+Event: 0.820 loading class sun/font/CMap$CMapFormat12
+Event: 0.820 loading class sun/font/CMap$CMapFormat12 done
+Event: 0.820 loading class sun/font/CompositeGlyphMapper
+Event: 0.820 loading class sun/font/CompositeGlyphMapper done
+Event: 0.831 loading class sun/java2d/d3d/D3DSurfaceData
+Event: 0.831 loading class sun/java2d/pipe/hw/AccelSurface
+Event: 0.831 loading class sun/java2d/pipe/hw/AccelSurface done
+Event: 0.831 loading class sun/java2d/d3d/D3DSurfaceData done
+Event: 0.831 loading class sun/java2d/d3d/D3DDrawImage
+Event: 0.831 loading class sun/java2d/d3d/D3DDrawImage done
+Event: 0.831 loading class sun/java2d/d3d/D3DTextRenderer
+Event: 0.832 loading class sun/java2d/pipe/BufferedTextPipe
+Event: 0.832 loading class sun/java2d/pipe/BufferedTextPipe done
+Event: 0.832 loading class sun/java2d/d3d/D3DTextRenderer done
+Event: 0.832 loading class sun/java2d/d3d/D3DRenderer
+Event: 0.832 loading class sun/java2d/pipe/BufferedRenderPipe
+Event: 0.832 loading class sun/java2d/pipe/BufferedRenderPipe done
+Event: 0.832 loading class sun/java2d/d3d/D3DRenderer done
+Event: 0.832 loading class sun/java2d/pipe/BufferedRenderPipe$AAParallelogramPipe
+Event: 0.832 loading class sun/java2d/pipe/BufferedRenderPipe$AAParallelogramPipe done
+Event: 0.832 loading class sun/java2d/pipe/BufferedRenderPipe$BufferedDrawHandler
+Event: 0.832 loading class sun/java2d/loops/ProcessPath$DrawHandler
+Event: 0.832 loading class sun/java2d/loops/ProcessPath$DrawHandler done
+Event: 0.832 loading class sun/java2d/pipe/BufferedRenderPipe$BufferedDrawHandler done
+Event: 0.832 loading class sun/java2d/d3d/D3DBlitLoops
+Event: 0.832 loading class sun/java2d/d3d/D3DBlitLoops done
+Event: 0.832 loading class sun/java2d/d3d/D3DSwToSurfaceBlit
+Event: 0.833 loading class sun/java2d/d3d/D3DSwToSurfaceBlit done
+Event: 0.833 loading class sun/java2d/d3d/D3DSwToTextureBlit
+Event: 0.833 loading class sun/java2d/d3d/D3DSwToTextureBlit done
+Event: 0.833 loading class sun/java2d/d3d/D3DSwToSurfaceTransform
+Event: 0.833 loading class sun/java2d/loops/TransformBlit
+Event: 0.833 loading class sun/java2d/loops/TransformBlit done
+Event: 0.833 loading class sun/java2d/d3d/D3DSwToSurfaceTransform done
+Event: 0.833 loading class sun/java2d/d3d/D3DSurfaceToGDIWindowSurfaceBlit
+Event: 0.833 loading class sun/java2d/d3d/D3DSurfaceToGDIWindowSurfaceBlit done
+Event: 0.833 loading class sun/java2d/d3d/D3DSurfaceToGDIWindowSurfaceScale
+Event: 0.833 loading class sun/java2d/d3d/D3DSurfaceToGDIWindowSurfaceScale done
+Event: 0.833 loading class sun/java2d/d3d/D3DSurfaceToGDIWindowSurfaceTransform
+Event: 0.833 loading class sun/java2d/d3d/D3DSurfaceToGDIWindowSurfaceTransform done
+Event: 0.833 loading class sun/java2d/d3d/D3DSurfaceToSurfaceBlit
+Event: 0.833 loading class sun/java2d/d3d/D3DSurfaceToSurfaceBlit done
+Event: 0.833 loading class sun/java2d/d3d/D3DSurfaceToSurfaceScale
+Event: 0.833 loading class sun/java2d/d3d/D3DSurfaceToSurfaceScale done
+Event: 0.833 loading class sun/java2d/d3d/D3DSurfaceToSurfaceTransform
+Event: 0.833 loading class sun/java2d/d3d/D3DSurfaceToSurfaceTransform done
+Event: 0.833 loading class sun/java2d/d3d/D3DRTTSurfaceToSurfaceBlit
+Event: 0.833 loading class sun/java2d/d3d/D3DRTTSurfaceToSurfaceBlit done
+Event: 0.833 loading class sun/java2d/d3d/D3DRTTSurfaceToSurfaceScale
+Event: 0.833 loading class sun/java2d/d3d/D3DRTTSurfaceToSurfaceScale done
+Event: 0.833 loading class sun/java2d/d3d/D3DRTTSurfaceToSurfaceTransform
+Event: 0.833 loading class sun/java2d/d3d/D3DRTTSurfaceToSurfaceTransform done
+Event: 0.833 loading class sun/java2d/d3d/D3DSurfaceToSwBlit
+Event: 0.833 loading class sun/java2d/d3d/D3DSurfaceToSwBlit done
+Event: 0.834 loading class sun/java2d/d3d/D3DGeneralBlit
+Event: 0.834 loading class sun/java2d/d3d/D3DGeneralBlit done
+Event: 0.834 loading class sun/java2d/d3d/D3DSwToSurfaceScale
+Event: 0.834 loading class sun/java2d/d3d/D3DSwToSurfaceScale done
+Event: 0.834 loading class sun/java2d/d3d/D3DGeneralTransformedBlit
+Event: 0.834 loading class sun/java2d/d3d/D3DGeneralTransformedBlit done
+Event: 0.834 loading class sun/java2d/d3d/D3DTextureToSurfaceBlit
+Event: 0.834 loading class sun/java2d/d3d/D3DTextureToSurfaceBlit done
+Event: 0.834 loading class sun/java2d/d3d/D3DTextureToSurfaceScale
+Event: 0.834 loading class sun/java2d/d3d/D3DTextureToSurfaceScale done
+Event: 0.834 loading class sun/java2d/d3d/D3DTextureToSurfaceTransform
+Event: 0.834 loading class sun/java2d/d3d/D3DTextureToSurfaceTransform done
+Event: 0.834 loading class sun/java2d/d3d/D3DMaskFill
+Event: 0.834 loading class sun/java2d/pipe/BufferedMaskFill
+Event: 0.834 loading class sun/java2d/pipe/BufferedMaskFill done
+Event: 0.834 loading class sun/java2d/d3d/D3DMaskFill done
+Event: 0.834 loading class sun/java2d/d3d/D3DMaskBlit
+Event: 0.834 loading class sun/java2d/pipe/BufferedMaskBlit
+Event: 0.834 loading class sun/java2d/pipe/BufferedMaskBlit done
+Event: 0.835 loading class sun/java2d/d3d/D3DMaskBlit done
+Event: 0.835 loading class sun/java2d/d3d/D3DSurfaceData$D3DWindowSurfaceData
+Event: 0.835 loading class sun/java2d/d3d/D3DSurfaceData$D3DWindowSurfaceData done
+Event: 0.835 loading class sun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType
+Event: 0.835 loading class sun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType done
+Event: 0.835 loading class sun/java2d/StateTrackableDelegate$1
+Event: 0.835 loading class sun/java2d/StateTrackableDelegate$1 done
+Event: 0.836 loading class javax/swing/GroupLayout$SpringDelta
+Event: 0.836 loading class javax/swing/GroupLayout$SpringDelta done
+Event: 0.837 loading class javax/imageio/ImageIO
+Event: 0.837 loading class javax/imageio/ImageIO done
+Event: 0.837 loading class javax/imageio/spi/IIORegistry
+Event: 0.837 loading class javax/imageio/spi/ServiceRegistry
+Event: 0.838 loading class javax/imageio/spi/ServiceRegistry done
+Event: 0.838 loading class javax/imageio/spi/IIORegistry done
+Event: 0.838 loading class javax/imageio/spi/ImageReaderSpi
+Event: 0.838 loading class javax/imageio/spi/ImageReaderWriterSpi
+Event: 0.838 loading class javax/imageio/spi/IIOServiceProvider
+Event: 0.838 loading class javax/imageio/spi/RegisterableService
+Event: 0.838 loading class javax/imageio/spi/RegisterableService done
+Event: 0.838 loading class javax/imageio/spi/IIOServiceProvider done
+Event: 0.838 loading class javax/imageio/spi/ImageReaderWriterSpi done
+Event: 0.838 loading class javax/imageio/spi/ImageReaderSpi done
+Event: 0.838 loading class javax/imageio/spi/ImageWriterSpi
+Event: 0.838 loading class javax/imageio/spi/ImageWriterSpi done
+Event: 0.838 loading class javax/imageio/spi/ImageTranscoderSpi
+Event: 0.838 loading class javax/imageio/spi/ImageTranscoderSpi done
+Event: 0.838 loading class javax/imageio/spi/ImageInputStreamSpi
+Event: 0.838 loading class javax/imageio/spi/ImageInputStreamSpi done
+Event: 0.838 loading class javax/imageio/spi/ImageOutputStreamSpi
+Event: 0.838 loading class javax/imageio/spi/ImageOutputStreamSpi done
+Event: 0.838 loading class java/util/Vector$Itr
+Event: 0.838 loading class java/util/Vector$Itr done
+Event: 0.838 loading class javax/imageio/spi/SubRegistry
+Event: 0.838 loading class javax/imageio/spi/SubRegistry done
+Event: 0.838 loading class javax/imageio/spi/PartiallyOrderedSet
+Event: 0.839 loading class javax/imageio/spi/PartiallyOrderedSet done
+Event: 0.839 loading class com/sun/imageio/plugins/gif/GIFImageReaderSpi
+Event: 0.840 loading class com/sun/imageio/plugins/gif/GIFImageReaderSpi done
+Event: 0.840 loading class javax/imageio/stream/ImageInputStream
+Event: 0.840 loading class javax/imageio/stream/ImageInputStream done
+Event: 0.840 loading class javax/imageio/spi/DigraphNode
+Event: 0.840 loading class javax/imageio/spi/DigraphNode done
+Event: 0.840 loading class com/sun/imageio/plugins/gif/GIFImageWriterSpi
+Event: 0.840 loading class com/sun/imageio/plugins/gif/GIFImageWriterSpi done
+Event: 0.840 loading class javax/imageio/stream/ImageOutputStream
+Event: 0.840 loading class javax/imageio/stream/ImageOutputStream done
+Event: 0.840 loading class com/sun/imageio/plugins/bmp/BMPImageReaderSpi
+Event: 0.841 loading class com/sun/imageio/plugins/bmp/BMPImageReaderSpi done
+Event: 0.841 loading class com/sun/imageio/plugins/bmp/BMPImageWriterSpi
+Event: 0.841 loading class com/sun/imageio/plugins/bmp/BMPImageWriterSpi done
+Event: 0.841 loading class com/sun/imageio/plugins/wbmp/WBMPImageReaderSpi
+Event: 0.841 loading class com/sun/imageio/plugins/wbmp/WBMPImageReaderSpi done
+Event: 0.841 loading class com/sun/imageio/plugins/wbmp/WBMPImageWriterSpi
+Event: 0.841 loading class com/sun/imageio/plugins/wbmp/WBMPImageWriterSpi done
+Event: 0.841 loading class com/sun/imageio/plugins/png/PNGImageReaderSpi
+Event: 0.841 loading class com/sun/imageio/plugins/png/PNGImageReaderSpi done
+Event: 0.841 loading class com/sun/imageio/plugins/png/PNGImageWriterSpi
+Event: 0.841 loading class com/sun/imageio/plugins/png/PNGImageWriterSpi done
+Event: 0.841 loading class com/sun/imageio/plugins/jpeg/JPEGImageReaderSpi
+Event: 0.841 loading class com/sun/imageio/plugins/jpeg/JPEGImageReaderSpi done
+Event: 0.841 loading class com/sun/imageio/plugins/jpeg/JPEG
+Event: 0.841 loading class com/sun/imageio/plugins/jpeg/JPEG done
+Event: 0.842 loading class com/sun/imageio/plugins/jpeg/JPEGImageWriterSpi
+Event: 0.842 loading class com/sun/imageio/plugins/jpeg/JPEGImageWriterSpi done
+Event: 0.842 loading class com/sun/imageio/spi/FileImageInputStreamSpi
+Event: 0.842 loading class com/sun/imageio/spi/FileImageInputStreamSpi done
+Event: 0.842 loading class com/sun/imageio/spi/FileImageOutputStreamSpi
+Event: 0.842 loading class com/sun/imageio/spi/FileImageOutputStreamSpi done
+Event: 0.842 loading class com/sun/imageio/spi/InputStreamImageInputStreamSpi
+Event: 0.842 loading class com/sun/imageio/spi/InputStreamImageInputStreamSpi done
+Event: 0.842 loading class com/sun/imageio/spi/OutputStreamImageOutputStreamSpi
+Event: 0.842 loading class com/sun/imageio/spi/OutputStreamImageOutputStreamSpi done
+Event: 0.842 loading class com/sun/imageio/spi/RAFImageInputStreamSpi
+Event: 0.842 loading class com/sun/imageio/spi/RAFImageInputStreamSpi done
+Event: 0.842 loading class com/sun/imageio/spi/RAFImageOutputStreamSpi
+Event: 0.842 loading class com/sun/imageio/spi/RAFImageOutputStreamSpi done
+Event: 0.842 loading class javax/imageio/spi/IIORegistry$1
+Event: 0.842 loading class javax/imageio/spi/IIORegistry$1 done
+Event: 0.843 loading class javax/imageio/ImageReader
+Event: 0.844 loading class javax/imageio/ImageReader done
+Event: 0.844 loading class javax/imageio/metadata/IIOMetadataFormat
+Event: 0.844 loading class javax/imageio/metadata/IIOMetadataFormat done
+Event: 0.844 loading class javax/imageio/ImageWriter
+Event: 0.844 loading class javax/imageio/ImageTranscoder
+Event: 0.844 loading class javax/imageio/ImageTranscoder done
+Event: 0.844 loading class javax/imageio/ImageWriter done
+Event: 0.844 loading class javax/imageio/ImageTypeSpecifier
+Event: 0.844 loading class javax/imageio/ImageTypeSpecifier done
+Event: 0.844 loading class java/awt/SplashScreen
+Event: 0.844 loading class java/awt/SplashScreen done
+Event: 0.845 loading class java/awt/Dialog
+
+
+Dynamic libraries:
+0x00007ff7463e0000 - 0x00007ff746429000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.232-1\bin\java.exe
+0x00007ffefa340000 - 0x00007ffefa530000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffefa1e0000 - 0x00007ffefa292000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffef72d0000 - 0x00007ffef7573000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffef8bf0000 - 0x00007ffef8c93000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffef9600000 - 0x00007ffef969e000 	C:\Windows\System32\msvcrt.dll
+0x00007ffef8b50000 - 0x00007ffef8be7000 	C:\Windows\System32\sechost.dll
+0x00007ffef90c0000 - 0x00007ffef91e0000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffef8d40000 - 0x00007ffef8ed4000 	C:\Windows\System32\USER32.dll
+0x00007ffef80d0000 - 0x00007ffef80f1000 	C:\Windows\System32\win32u.dll
+0x00007ffef8ca0000 - 0x00007ffef8cc6000 	C:\Windows\System32\GDI32.dll
+0x00007ffef7580000 - 0x00007ffef7714000 	C:\Windows\System32\gdi32full.dll
+0x00007ffef8350000 - 0x00007ffef83ee000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffef77f0000 - 0x00007ffef78ea000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffeeb7d0000 - 0x00007ffeeba55000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.476_none_e6c4b11b130f2595\COMCTL32.dll
+0x00007ffef92c0000 - 0x00007ffef95f6000 	C:\Windows\System32\combase.dll
+0x00007ffef8250000 - 0x00007ffef82d0000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffef97d0000 - 0x00007ffef97fe000 	C:\Windows\System32\IMM32.DLL
+0x000000005aaf0000 - 0x000000005abc2000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.232-1\jre\bin\msvcr100.dll
+0x000000005abd0000 - 0x000000005b48b000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.232-1\jre\bin\server\jvm.dll
+0x00007ffef91e0000 - 0x00007ffef91e8000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffef3bb0000 - 0x00007ffef3bb9000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffef51c0000 - 0x00007ffef51e4000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffef10a0000 - 0x00007ffef10aa000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffef8cd0000 - 0x00007ffef8d3f000 	C:\Windows\System32\WS2_32.dll
+0x00007ffef4e20000 - 0x00007ffef4e4d000 	C:\Windows\SYSTEM32\winmmbase.dll
+0x00007ffef8300000 - 0x00007ffef834a000 	C:\Windows\System32\cfgmgr32.dll
+0x00007ffef3250000 - 0x00007ffef325f000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.232-1\jre\bin\verify.dll
+0x00007ffee9aa0000 - 0x00007ffee9ac9000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.232-1\jre\bin\java.dll
+0x00007ffef3230000 - 0x00007ffef3246000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.232-1\jre\bin\zip.dll
+0x00007ffef9800000 - 0x00007ffef9ee5000 	C:\Windows\System32\SHELL32.dll
+0x00007ffef96c0000 - 0x00007ffef9769000 	C:\Windows\System32\shcore.dll
+0x00007ffef78f0000 - 0x00007ffef806e000 	C:\Windows\System32\windows.storage.dll
+0x00007ffef7270000 - 0x00007ffef728f000 	C:\Windows\System32\profapi.dll
+0x00007ffef7220000 - 0x00007ffef726a000 	C:\Windows\System32\powrprof.dll
+0x00007ffef7210000 - 0x00007ffef7220000 	C:\Windows\System32\UMPDC.dll
+0x00007ffef8530000 - 0x00007ffef8582000 	C:\Windows\System32\shlwapi.dll
+0x00007ffef7290000 - 0x00007ffef72a1000 	C:\Windows\System32\kernel.appcore.dll
+0x00007ffef7720000 - 0x00007ffef7737000 	C:\Windows\System32\cryptsp.dll
+0x00007ffedaa90000 - 0x00007ffedac3b000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.232-1\jre\bin\awt.dll
+0x00007ffef91f0000 - 0x00007ffef92b4000 	C:\Windows\System32\OLEAUT32.dll
+0x00007ffef5460000 - 0x00007ffef54ef000 	C:\Windows\SYSTEM32\apphelp.dll
+0x00007ffef5590000 - 0x00007ffef5629000 	C:\Windows\system32\uxtheme.dll
+0x00007ffef83f0000 - 0x00007ffef8526000 	C:\Windows\System32\MSCTF.dll
+0x00007ffef8f60000 - 0x00007ffef90b6000 	C:\Windows\System32\ole32.dll
+0x00007ffef59b0000 - 0x00007ffef59dd000 	C:\Windows\system32\DWMAPI.DLL
+0x00007ffeda880000 - 0x00007ffeda923000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.232-1\jre\bin\freetype.dll
+0x00007ffeda830000 - 0x00007ffeda87a000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.232-1\jre\bin\fontmanager.dll
+0x00007ffeda930000 - 0x00007ffedaa86000 	C:\Windows\system32\opengl32.dll
+0x00007ffee0ca0000 - 0x00007ffee0ccc000 	C:\Windows\SYSTEM32\GLU32.dll
+0x00007ffef5e80000 - 0x00007ffef5ea0000 	C:\Windows\SYSTEM32\dxcore.dll
+0x00007ffed8710000 - 0x00007ffed88d7000 	C:\Windows\system32\d3d9.dll
+0x00007ffef1120000 - 0x00007ffef120a000 	C:\Windows\System32\DriverStore\FileRepository\nv_ref_pubwu.inf_amd64_2e7fa54192fe16d0\nvldumdx.dll
+0x00007ffef8100000 - 0x00007ffef8249000 	C:\Windows\System32\crypt32.dll
+0x00007ffef72b0000 - 0x00007ffef72c2000 	C:\Windows\System32\MSASN1.dll
+0x00007ffef8070000 - 0x00007ffef80cc000 	C:\Windows\System32\WINTRUST.DLL
+0x00007ffef8b30000 - 0x00007ffef8b4d000 	C:\Windows\System32\imagehlp.dll
+0x00007ffef6590000 - 0x00007ffef65c3000 	C:\Windows\system32\rsaenh.dll
+0x00007ffef82d0000 - 0x00007ffef82f6000 	C:\Windows\System32\bcrypt.dll
+0x00007ffef6bf0000 - 0x00007ffef6bfc000 	C:\Windows\SYSTEM32\CRYPTBASE.dll
+0x00007ffeaa510000 - 0x00007ffeab6e6000 	C:\Windows\System32\DriverStore\FileRepository\nv_ref_pubwu.inf_amd64_2e7fa54192fe16d0\nvd3dumx.dll
+0x00007ffeee700000 - 0x00007ffeee7eb000 	C:\Program Files (x86)\NVIDIA Corporation\3D Vision\nvSCPAPI64.dll
+0x00007ffef86c0000 - 0x00007ffef8b30000 	C:\Windows\System32\SETUPAPI.dll
+0x00007ffeec030000 - 0x00007ffeec04a000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.232-1\jre\bin\net.dll
+0x00007ffef6a20000 - 0x00007ffef6a87000 	C:\Windows\system32\mswsock.dll
+0x00007ffee5aa0000 - 0x00007ffee5ab1000 	C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.232-1\jre\bin\nio.dll
+0x00007ffeedf60000 - 0x00007ffeedffe000 	C:\Windows\System32\TextInputFramework.dll
+0x00007ffef3300000 - 0x00007ffef362a000 	C:\Windows\System32\CoreUIComponents.dll
+0x00007ffef4d40000 - 0x00007ffef4e14000 	C:\Windows\System32\CoreMessaging.dll
+0x00007ffef6270000 - 0x00007ffef62a1000 	C:\Windows\SYSTEM32\ntmarta.dll
+0x00007ffef2fd0000 - 0x00007ffef3123000 	C:\Windows\SYSTEM32\wintypes.dll
+
+VM Arguments:
+java_command: com.ocp19_thread.pic.BingoJFrame
+java_class_path (initial): C:\Users\MB-207\Documents\NetBeansProjects\Java1103\target\classes;C:\Users\MB-207\.m2\repository\com\github\javafaker\javafaker\0.12\javafaker-0.12.jar;C:\Users\MB-207\.m2\repository\org\apache\commons\commons-lang3\3.5\commons-lang3-3.5.jar;C:\Users\MB-207\.m2\repository\com\github\mifmif\generex\1.0.2\generex-1.0.2.jar;C:\Users\MB-207\.m2\repository\dk\brics\automaton\automaton\1.11-8\automaton-1.11-8.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.232-1
+PATH=C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.232-1\bin;C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.232-1\jre\bin;C:\Program Files\AdoptOpenJDK\jre-11.0.5.10-hotspot\bin;C:\Program Files (x86)\AdoptOpenJDK\jre-8.0.232.09-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\MB-207\AppData\Local\Microsoft\WindowsApps;
+USERNAME=MB-teacher
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 42 Stepping 7, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 18362 (10.0.18362.329)
+
+CPU:total 4 (initial active 4) (4 cores per cpu, 1 threads per core) family 6 model 42 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, tsc, tscinvbit
+
+Memory: 4k page, physical 8345568k(1777812k free), swap 8345568k(4096k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.232-b09) for windows-amd64 JRE (1.8.0_232-b09), built on Oct 20 2019 21:49:19 by "VssAdministrator" with MS VC++ 10.0 (VS2010)
+
+time: Thu Jan 14 21:22:53 2021
+timezone: 台北標準時間
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
