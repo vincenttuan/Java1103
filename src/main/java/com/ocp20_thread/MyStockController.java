@@ -4,13 +4,13 @@ import java.util.concurrent.FutureTask;
 import javax.swing.JLabel;
 import yahoofinance.Stock;
 
-public class MyController implements Runnable {
+public class MyStockController implements Runnable {
     private String symbol;
     private JLabel priceLabel;
     private JLabel changeLabel;
     public static boolean play;
 
-    public MyController(String symbol, JLabel priceLabel, JLabel changeLabel) {
+    public MyStockController(String symbol, JLabel priceLabel, JLabel changeLabel) {
         this.symbol = symbol;
         this.priceLabel = priceLabel;
         this.changeLabel = changeLabel;
