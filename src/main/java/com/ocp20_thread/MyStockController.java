@@ -9,7 +9,7 @@ public class MyStockController implements Runnable {
     private String symbol;
     private JLabel priceLabel;
     private JLabel changeLabel;
-    public static boolean play;
+    public boolean play;
 
     public MyStockController(String symbol, JLabel priceLabel, JLabel changeLabel) {
         this.symbol = symbol;

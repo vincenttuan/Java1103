@@ -27,11 +27,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="symbolLabel" max="32767" attributes="0"/>
-                  <Component id="priceLabel" alignment="0" min="-2" pref="168" max="-2" attributes="0"/>
-                  <Component id="changeLabel" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
+                  <Component id="symbolLabel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="priceLabel" alignment="0" pref="244" max="32767" attributes="0"/>
+                  <Component id="changeLabel" alignment="0" min="-2" pref="217" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="50" max="32767" attributes="0"/>
+              <EmptySpace pref="42" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

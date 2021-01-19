@@ -60,9 +60,9 @@ public class MyStockClient extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(symbolLabel)
-                    .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(changeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                    .addComponent(priceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                    .addComponent(changeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,7 +82,7 @@ public class MyStockClient extends javax.swing.JFrame {
     private void symbolLabelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_symbolLabelKeyPressed
         if(evt.getKeyCode() == 10) { // 按下 enter 鍵
             if(controller != null) {
-                MyStockController.play = false;
+                controller.play = false;
                 controller = new MyStockController(symbolLabel.getText(), priceLabel, changeLabel);
                 new Thread(controller).start();
             }
