@@ -11,11 +11,13 @@ package com.ocp20_thread;
  */
 public class MyStockClient extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MyStockClient
-     */
+    private MyStockController controller;
+    
     public MyStockClient() {
         initComponents();
+        // 第一次進來要做的事
+        controller = new MyStockController(symbolLabel.getText(), priceLabel, changeLabel);
+        new Thread(controller).start();
     }
 
     /**

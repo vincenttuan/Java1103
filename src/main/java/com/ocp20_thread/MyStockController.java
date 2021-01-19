@@ -22,6 +22,7 @@ public class MyStockController implements Runnable {
         while (play) {            
             try {
                 FutureTask<Stock> task = new FutureTask<>(new MyStock(symbol));
+                new Thread(task).start(); // 放到執行緒去執行,重要 !!
                 Stock stock = task.get();
                 double price = stock.getQuote().getPrice().doubleValue();
                 double change = stock.getQuote().getChange().doubleValue();
