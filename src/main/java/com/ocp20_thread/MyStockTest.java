@@ -8,7 +8,9 @@ public class MyStockTest {
         // 設定商品代號
         //String symbol = "USDTWD=x"; // 匯率
         //String symbol = "2498.TW"; // 股票
-        String symbol = "^TWII"; // 台灣加權指數
+        //String symbol = "^TWII"; // 台灣加權指數
+        //String symbol = "GC=F"; // 黃金期貨
+        String symbol = "CL=F"; // 原油期貨
         // 建立 Callable 物件(如: MyStock)
         MyStock myStock = new MyStock(symbol);
         // 建立 FutureTask 來執行 Callable 物件
