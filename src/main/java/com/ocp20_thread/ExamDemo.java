@@ -32,5 +32,6 @@ public class ExamDemo {
         Object s2 = f2.get();
         System.out.println(s1);
         System.out.println(s2);
+        es.shutdown();
     }
 }
