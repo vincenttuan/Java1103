@@ -1,5 +1,6 @@
 package com.ocp20_thread;
 
+import java.util.Date;
 import java.util.concurrent.FutureTask;
 import javax.swing.JLabel;
 import yahoofinance.Stock;
@@ -21,6 +22,7 @@ public class MyStockController implements Runnable {
     public void run() {
         while (play) {            
             try {
+                System.out.println(new Date());
                 FutureTask<Stock> task = new FutureTask<>(new MyStock(symbol));
                 new Thread(task).start(); // 放到執行緒去執行,重要 !!
                 Stock stock = task.get();
