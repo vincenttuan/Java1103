@@ -16,11 +16,15 @@ public class Account {
     }
 
     // 提款 x
-    public void withdraw(int x) {
+    public synchronized void withdraw(int x) {
         String name = Thread.currentThread().getName();
         System.out.printf("%s 進來提款了\n", name);
         // 取得帳戶餘額
         int temp_money = getMoney();
+        
+        // 模擬 ATM 計算時間
+        for(int i=1;i<99999999;i++);
+        
         if(temp_money >= x) { // 餘額充足
             // 提款成功, 回寫餘額
             setMoney(temp_money - x);
