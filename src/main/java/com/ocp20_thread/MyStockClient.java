@@ -38,6 +38,11 @@ public class MyStockClient extends javax.swing.JFrame {
 
         symbolLabel.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
         symbolLabel.setText("USDTWD=x");
+        symbolLabel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                symbolLabelKeyPressed(evt);
+            }
+        });
 
         priceLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 48)); // NOI18N
         priceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -73,6 +78,16 @@ public class MyStockClient extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void symbolLabelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_symbolLabelKeyPressed
+        if(evt.getKeyCode() == 10) { // 按下 enter 鍵
+            if(controller != null) {
+                MyStockController.play = false;
+                controller = new MyStockController(symbolLabel.getText(), priceLabel, changeLabel);
+                new Thread(controller).start();
+            }
+        }
+    }//GEN-LAST:event_symbolLabelKeyPressed
 
     /**
      * @param args the command line arguments
