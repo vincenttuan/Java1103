@@ -27,6 +27,7 @@ public class MyController implements Runnable {
                 double change = stock.getQuote().getChange().doubleValue();
                 priceLabel.setText(String.format("%.2f", price));
                 changeLabel.setText(String.format("%.2f", change));
+                Thread.sleep(3000);
             } catch (Exception e) {
             }
         }
