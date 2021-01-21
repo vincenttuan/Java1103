@@ -1,12 +1,15 @@
 package com.ocp25_threadpool;
 
 import java.util.Random;
-import java.util.concurrent.Callable;
 
-public class Lotto implements Callable<Integer>{
+public class Lotto implements Runnable {
     @Override
-    public Integer call() throws Exception {
-        return new Random().nextInt(100);
+    public void run() {
+        try {
+            Thread.sleep(1);
+        } catch (Exception e) {
+        }
+        System.out.println(new Random().nextInt(100));
     }
     
 }
