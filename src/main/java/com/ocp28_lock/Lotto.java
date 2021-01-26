@@ -13,13 +13,16 @@ public class Lotto implements Runnable {
     @Override
     public void run() {
         try {
+            lock.lock(); // 嘗試取得鎖
             // 要連續取得
             for(int i=1;i<=5;i++) {
                 Thread.sleep(1000); // 模擬要花費的時間
                 int n = new Random().nextInt(100);
-                System.out.printf("%s 取到 %n, %s\n", name, n, new Date().toString());
+                System.out.printf("%s 取到 %d, %s\n", name, n, new Date().toString());
             }
         } catch (Exception e) {
+        } finally {
+            lock.unlock(); // 釋放鎖
         }
     }
     
