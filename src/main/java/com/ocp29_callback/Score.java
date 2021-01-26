@@ -11,12 +11,13 @@ public class Score implements Runnable {
     
     @Override
     public void run() {
+        String name = Thread.currentThread().getName();
+        System.out.printf("%s 開始執行\n", name);    
         Random r = new Random();
         try {
             Thread.sleep(r.nextInt(10_000));
             int score = r.nextInt(101);
-            String name = Thread.currentThread().getName();
-            System.out.printf("%s 得到 $d\n", name, score);
+            System.out.printf("%s 得到 %d\n", name, score);
             cb.setValue(score);
         } catch (Exception e) {
         }
