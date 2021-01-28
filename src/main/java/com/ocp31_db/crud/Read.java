@@ -1,4 +1,4 @@
-package com.ocp31_db;
+package com.ocp31_db.crud;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
