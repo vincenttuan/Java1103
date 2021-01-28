@@ -3,7 +3,9 @@ package com.ocp31_db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+import java.util.Date;
 
 public class Read {
     public static void main(String[] args) throws Exception {
@@ -21,9 +23,36 @@ public class Read {
         // 一般多用於查詢使用
         //Statement stmt = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
         Statement stmt = conn.createStatement();
+        // 4. 取得查詢結果的集合 ResultSet (須配合 SQL)
+        String sql = "SELECT d.ID, d.\"NAME\", d.PRICE, d.AMOUNT, d.TDATE FROM APP.DRINK d";
+        ResultSet rs = stmt.executeQuery(sql);
+        // 5. 將資料表欄位名稱資訊顯示出來
+        System.out.printf("-----------------------------------------|\n");
+        ResultSetMetaData md = rs.getMetaData();
+        System.out.printf("|%-2s|%-10s|%-6s|%-6s|%-12s|\n", 
+            md.getColumnName(1),
+            md.getColumnName(2),
+            md.getColumnName(3),
+            md.getColumnName(4),
+            md.getColumnName(5)
+        );
+        System.out.printf("-----------------------------------------|\n");
         
+
+        // 6. 走訪 ResultSet 資料集合
+        while(rs.next()) {
+            int id = rs.getInt("id");
+            String name = rs.getString("name");
+            int price = rs.getInt("price");
+            int amount = rs.getInt("amount");
+            Date tdate = rs.getDate("tdate");
+            
+            System.out.printf("|%2d|%-10s|%6d|%6d|%12s|\n", id, name, price, amount, tdate);
+            
+        }
         
-        
+        rs.close();
+        stmt.close();
         conn.close();
     }
 }
