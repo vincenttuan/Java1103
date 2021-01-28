@@ -20,7 +20,7 @@ public class Update {
         Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         // 4. 設定修改的 id 值
         int updateId = 5;
-        // 5. 建立修改的查詢
+        // 5. 建立修改的查詢 (用 SQL 先查出你要修改的該筆紀錄)
         String sql = "SELECT d.ID, d.\"NAME\", d.PRICE, d.AMOUNT, d.TDATE FROM APP.DRINK d WHERE id = " + updateId;
         ResultSet rs = stmt.executeQuery(sql);
         // 6. 指標移動到該筆紀錄
