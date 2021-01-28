@@ -58,4 +58,39 @@ public class DrinkDao {
         } catch (Exception e) {
         }
     }
+
+    public void create(String name, int price, int amount) {
+        // 先取得 nextId
+        String sql = "SELECT MAX(d.ID) as id FROM APP.DRINK d";
+        int nextId = 0;
+        try (Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(sql);) {
+            rs.next(); // 游標移動到該筆紀錄
+            nextId = rs.getInt("id") + 1; // 取得最大 id 值 + 1
+        } catch (Exception e) {
+        }
+        // 新增程序
+        sql = "SELECT d.ID, d.\"NAME\", d.PRICE, d.AMOUNT, d.TDATE FROM APP.DRINK d";
+        try (Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+             ResultSet rs = stmt.executeQuery(sql);) {
+            // 指標移動到可新增的紀錄
+            rs.moveToInsertRow();
+            // 加入你要新增的內容
+            rs.updateInt("id", nextId);
+            rs.updateString("name", "Coffee");
+            rs.updateInt("price", 75);
+            rs.updateInt("amount", 8);
+            rs.updateDate("tdate", new java.sql.Date(new java.util.Date().getTime()));
+            // 新增資料
+            rs.insertRow();
+            System.out.println("新增成功!");
+        } catch (Exception e) {
+        }
+    }
+
+    public void update(int id, int amount) {
+    }
+
+    public void delete(int id) {
+    }
 }
