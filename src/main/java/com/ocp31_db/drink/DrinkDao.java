@@ -107,5 +107,20 @@ public class DrinkDao {
     }
 
     public void delete(int id) {
+        String sql = "SELECT d.ID, d.\"NAME\", d.PRICE, d.AMOUNT, d.TDATE FROM APP.DRINK d WHERE id = " + id;
+        try (Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+             ResultSet rs = stmt.executeQuery(sql);) {
+            if (rs.last()) { // 指標移動到該筆紀錄
+                // 刪除資料
+                rs.deleteRow();
+                System.out.println("刪除成功!");
+            } else {
+                System.out.println("沒有資料可以刪除!");
+            }
+        } catch (Exception e) {
+            System.out.println("資料庫連線失敗");
+            e.printStackTrace();
+        }
+
     }
 }
