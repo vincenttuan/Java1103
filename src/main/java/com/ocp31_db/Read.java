@@ -38,7 +38,6 @@ public class Read {
         );
         System.out.printf("-----------------------------------------|\n");
         
-
         // 6. 走訪 ResultSet 資料集合
         int totalAmount = 0;
         int totalPrice = 0;
