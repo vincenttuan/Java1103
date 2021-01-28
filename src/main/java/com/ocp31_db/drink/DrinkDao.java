@@ -72,7 +72,7 @@ public class DrinkDao {
         // 新增程序
         sql = "SELECT d.ID, d.\"NAME\", d.PRICE, d.AMOUNT, d.TDATE FROM APP.DRINK d";
         try (Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-             ResultSet rs = stmt.executeQuery(sql);) {
+                ResultSet rs = stmt.executeQuery(sql);) {
             // 指標移動到可新增的紀錄
             rs.moveToInsertRow();
             // 加入你要新增的內容
@@ -89,6 +89,21 @@ public class DrinkDao {
     }
 
     public void update(int id, int amount) {
+        String sql = "SELECT d.ID, d.\"NAME\", d.PRICE, d.AMOUNT, d.TDATE FROM APP.DRINK d WHERE id = " + id;
+        try (Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                ResultSet rs = stmt.executeQuery(sql);) {
+            // 指標移動到該筆紀錄
+            if (rs.last()) {
+                // 修改你的內容 (只要修改amount)
+                rs.updateInt("amount", amount);
+                // 8. 修改資料
+                rs.updateRow();
+                System.out.println("修改成功!");
+            } else {
+                System.out.println("沒有資料可以修改!");
+            }
+        } catch (Exception e) {
+        }
     }
 
     public void delete(int id) {
