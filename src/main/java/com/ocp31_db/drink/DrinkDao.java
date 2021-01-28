@@ -72,19 +72,20 @@ public class DrinkDao {
         // 新增程序
         sql = "SELECT d.ID, d.\"NAME\", d.PRICE, d.AMOUNT, d.TDATE FROM APP.DRINK d";
         try (Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-                ResultSet rs = stmt.executeQuery(sql);) {
+             ResultSet rs = stmt.executeQuery(sql);) {
             // 指標移動到可新增的紀錄
             rs.moveToInsertRow();
             // 加入你要新增的內容
             rs.updateInt("id", nextId);
-            rs.updateString("name", "Coffee");
-            rs.updateInt("price", 75);
-            rs.updateInt("amount", 8);
+            rs.updateString("name", name);
+            rs.updateInt("price", price);
+            rs.updateInt("amount", amount);
             rs.updateDate("tdate", new java.sql.Date(new java.util.Date().getTime()));
             // 新增資料
             rs.insertRow();
             System.out.println("新增成功!");
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

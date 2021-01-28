@@ -4,20 +4,24 @@ import java.util.Scanner;
 
 public class DrinkStore {
     private static boolean exit;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         while (!exit) {            
             menu();
+            if(!exit) {
+                System.out.println("按下Enter繼續...");
+                System.in.read(); // 按下Enter繼續...
+            }
         }
     }
     
     public static void menu() {
-        System.out.println("----------------------");
+        System.out.println("-----------------------------------------");
         System.out.println("1. Read");
         System.out.println("2. Create");
         System.out.println("3. Update amount");
         System.out.println("4. Delete");
         System.out.println("5. Exit");
-        System.out.println("----------------------");
+        System.out.println("-----------------------------------------");
         service();
     }
     
