@@ -11,7 +11,7 @@ public class WriteTextIntoFile2 {
         File file = new File("src\\main\\java\\com\\ocp32_io\\files\\data.txt");
         // 使用 try-with-resource 的語法
         try(Writer fw = new FileWriter(file, true)) { // true: 保留之前的資料
-            fw.write("Hello World " + new Date() + "\n");
+            fw.write("新年快樂 " + new Date() + "\n");
             System.out.println("寫檔成功~");
         } catch (IOException e) {
             e.printStackTrace();
