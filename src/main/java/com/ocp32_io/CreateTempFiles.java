@@ -12,12 +12,12 @@ public class CreateTempFiles {
                     File tmpFile = File.createTempFile("temp", ".txt", files);
                     System.out.printf("建立 %s 成功\n", tmpFile);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.out.println(e); // 印出簡要錯誤
+                    e.printStackTrace(); // 印出詳細錯誤
                 }
             }
         } else {
             System.out.printf("%s 不存在\n", files);
-                    
         }
     }
 }
