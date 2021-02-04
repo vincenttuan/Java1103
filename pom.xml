@@ -35,7 +35,13 @@
             <artifactId>derbyclient</artifactId>
             <version>10.13.1.1</version>
         </dependency>
-
+        
+        <!-- org.json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20201115</version>
+        </dependency>
         
     </dependencies>
 </project>
