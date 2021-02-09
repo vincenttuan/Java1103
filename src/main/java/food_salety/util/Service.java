@@ -11,7 +11,7 @@ import java.util.List;
 public class Service {
     // 取得 json 資料
     public String getJsonString(String url) {
-        String json = null;
+        String json = "";
         try(InputStream is = new URL(url).openStream();
             InputStreamReader isr = new InputStreamReader(is, "UTF-8");
             BufferedReader br = new BufferedReader(isr)) {
