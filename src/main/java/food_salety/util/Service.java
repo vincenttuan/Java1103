@@ -23,4 +23,11 @@ public class Service {
         }
         return json;
     }
+    
+    public List<Rice> queryRices(String url) {
+        String json = getJsonString(url);
+        // json 轉 List<Rice>, 使用 Gson
+        
+        return null;
+    }
 }

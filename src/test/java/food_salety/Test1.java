@@ -9,5 +9,7 @@ public class Test1 {
         Service service = new Service();
         String url = "https://data.coa.gov.tw/Service/OpenData/FromM/AgricultureiRiceFailure.aspx";
         System.out.println(service.getJsonString(url));
+        //String url2 = "https://data.coa.gov.tw/Service/OpenData/FromM/AgricultureiRiceQualified.aspx";
+        //System.out.println(service.getJsonString(url2));
     }
 }
