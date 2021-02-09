@@ -10,18 +10,17 @@ import java.util.List;
 
 public class Service {
     // 取得 json 資料
-    public List<Rice> getRiceLict(String url) {
+    public String getJsonString(String url) {
+        String json = null;
         try(InputStream is = new URL(url).openStream();
             InputStreamReader isr = new InputStreamReader(is, "UTF-8");
             BufferedReader br = new BufferedReader(isr)) {
             String data = "";
-            String json = "";
             while( (data = br.readLine()) != null) {
                 json += data;
             }
-            System.out.println(json);
         } catch (Exception e) {
         }
-        return null;
+        return json;
     }
 }
