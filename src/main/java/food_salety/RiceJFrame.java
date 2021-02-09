@@ -49,9 +49,9 @@ public class RiceJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         kw = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        searchBtn = new javax.swing.JButton();
+        clearBtn = new javax.swing.JButton();
+        importBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         rice_table = new javax.swing.JTable();
 
@@ -61,27 +61,27 @@ public class RiceJFrame extends javax.swing.JFrame {
         kw.setFont(new java.awt.Font("微軟正黑體", 0, 24)); // NOI18N
         kw.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jButton1.setFont(new java.awt.Font("微軟正黑體", 0, 24)); // NOI18N
-        jButton1.setText("查詢");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        searchBtn.setFont(new java.awt.Font("微軟正黑體", 0, 24)); // NOI18N
+        searchBtn.setText("查詢");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                searchBtnActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("微軟正黑體", 0, 24)); // NOI18N
-        jButton2.setText("清空");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        clearBtn.setFont(new java.awt.Font("微軟正黑體", 0, 24)); // NOI18N
+        clearBtn.setText("清空");
+        clearBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                clearBtnActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("微軟正黑體", 0, 24)); // NOI18N
-        jButton3.setText("匯入");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        importBtn.setFont(new java.awt.Font("微軟正黑體", 0, 24)); // NOI18N
+        importBtn.setText("匯入");
+        importBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                importBtnActionPerformed(evt);
             }
         });
 
@@ -116,11 +116,11 @@ public class RiceJFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(kw)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addComponent(searchBtn))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(clearBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(importBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -129,11 +129,11 @@ public class RiceJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(kw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(searchBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2))
+                    .addComponent(importBtn)
+                    .addComponent(clearBtn))
                 .addGap(23, 23, 23)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -142,7 +142,7 @@ public class RiceJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
         service.clearRiceTable();
         List<Rice> rices = service.queryRicesFromTable();
         showRiceTable(rices);
@@ -151,15 +151,15 @@ public class RiceJFrame extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(rootPane, "清除失敗");
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_clearBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         String keyword = kw.getText();
         List<Rice> rices = service.queryRicesFromTable(keyword);
         showRiceTable(rices);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_searchBtnActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void importBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importBtnActionPerformed
         String url = "https://data.coa.gov.tw/Service/OpenData/FromM/AgricultureiRiceFailure.aspx";
         service.importToRiceTable(url);
         List<Rice> rices = service.queryRicesFromTable();
@@ -169,7 +169,7 @@ public class RiceJFrame extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(rootPane, "匯入失敗或無資料可供匯入");
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_importBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,11 +207,11 @@ public class RiceJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton clearBtn;
+    private javax.swing.JButton importBtn;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField kw;
     private javax.swing.JTable rice_table;
+    private javax.swing.JButton searchBtn;
     // End of variables declaration//GEN-END:variables
 }
