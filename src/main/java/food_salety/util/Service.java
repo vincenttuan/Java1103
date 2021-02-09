@@ -51,9 +51,8 @@ public class Service {
     // 將資料匯入到 Rice 資料表內
     public void importToRiceTable(String url) {
         Rice[] rices = queryRices(url);
-        
         String sql = "Insert Into Rice(Title, 編號, 品名, 國際條碼, 廠商名稱, 廠商地址, 檢驗結果, 不合格原因, 違反規定, 行政處分, Log_UpdateTime) " +
-                     "Values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                     " Values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.clearBatch(); // 清空緩存
             for(Rice r : rices) {
