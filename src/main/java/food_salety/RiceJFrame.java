@@ -20,6 +20,7 @@ public class RiceJFrame extends javax.swing.JFrame {
     
     public RiceJFrame() {
         initComponents();
+        showRiceTable();
     }
     
     private void showRiceTable() {
@@ -30,7 +31,7 @@ public class RiceJFrame extends javax.swing.JFrame {
         List<Rice> rices = service.queryRicesFromTable();
         // 逐筆將資料放入 rice_table 內
         for(Rice r : rices) {
-            Object[] rowData = {r.getId(), r.get品名(), r.get檢驗結果(), r.get不合格原因(), r.get檢驗結果()};
+            Object[] rowData = {r.getId(), r.get品名(), r.get檢驗結果(), r.get不合格原因(), r.get行政處分()};
             model.addRow(rowData);
         }
     }
