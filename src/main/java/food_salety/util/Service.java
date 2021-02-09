@@ -21,6 +21,7 @@ public class Service {
             String password = "app";
             conn = DriverManager.getConnection(url, user, password);
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     
@@ -72,6 +73,18 @@ public class Service {
             pstmt.executeBatch(); // 執行緩存
             System.out.println("匯入成功~");
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    // 將 Rice 資料表清空
+    public void clearRiceTable() {
+        String sql = "Delete From Rice";
+        try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.executeUpdate();
+            System.out.println("Clear Rice OK");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
