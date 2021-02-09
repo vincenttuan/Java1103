@@ -8,6 +8,7 @@ package food_salety;
 import food_salety.entity.Rice;
 import food_salety.util.Service;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -137,7 +138,14 @@ public class RiceJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        service.clearRiceTable();
+        List<Rice> rices = service.queryRicesFromTable();
+        showRiceTable(rices);
+        if(rices.size() == 0) {
+            JOptionPane.showMessageDialog(rootPane, "資料已清除");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "清除失敗");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
