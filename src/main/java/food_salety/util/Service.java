@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.List;
 
 public class Service {
@@ -53,6 +54,25 @@ public class Service {
         
         String sql = "Insert Into Rice(Title, 編號, 品名, 國際條碼, 廠商名稱, 廠商地址, 檢驗結果, 不合格原因, 違反規定, 行政處分, Log_UpdateTime) " +
                      "Values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        
+        try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.clearBatch(); // 清空緩存
+            for(Rice r : rices) {
+                pstmt.setString(1, r.getTitle());
+                pstmt.setString(2, r.get編號());
+                pstmt.setString(3, r.get品名());
+                pstmt.setString(4, r.get國際條碼());
+                pstmt.setString(5, r.get廠商名稱());
+                pstmt.setString(6, r.get廠商地址());
+                pstmt.setString(7, r.get檢驗結果());
+                pstmt.setString(8, r.get不合格原因());
+                pstmt.setString(9, r.get違反規定());
+                pstmt.setString(10, r.get行政處分());
+                pstmt.setString(11, r.getLog_UpdateTime());
+                pstmt.addBatch(); // 加入緩存
+            }
+            pstmt.executeBatch(); // 執行緩存
+            System.out.println("匯入成功~");
+        } catch (Exception e) {
+        }
     }
 }
