@@ -20,15 +20,16 @@ public class RiceJFrame extends javax.swing.JFrame {
     
     public RiceJFrame() {
         initComponents();
-        showRiceTable();
+        // 取得 Rice 資料表內的資料
+        List<Rice> rices = service.queryRicesFromTable();
+        showRiceTable(rices);
     }
     
-    private void showRiceTable() {
+    private void showRiceTable(List<Rice> rices) {
         // 清空 rice_table 的內容
         DefaultTableModel model = (DefaultTableModel)rice_table.getModel();
         model.setNumRows(0); // 清空
-        // 取得 Rice 資料表內的資料
-        List<Rice> rices = service.queryRicesFromTable();
+        
         // 逐筆將資料放入 rice_table 內
         for(Rice r : rices) {
             Object[] rowData = {r.getId(), r.get品名(), r.get檢驗結果(), r.get不合格原因(), r.get行政處分()};
@@ -54,12 +55,18 @@ public class RiceJFrame extends javax.swing.JFrame {
         rice_table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("市售米檢驗資料");
 
         kw.setFont(new java.awt.Font("微軟正黑體", 0, 24)); // NOI18N
         kw.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jButton1.setFont(new java.awt.Font("微軟正黑體", 0, 24)); // NOI18N
         jButton1.setText("查詢");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("微軟正黑體", 0, 24)); // NOI18N
         jButton2.setText("清空");
@@ -132,6 +139,10 @@ public class RiceJFrame extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
