@@ -1,5 +1,6 @@
 package food_salety.util;
 
+import com.google.gson.Gson;
 import food_salety.entity.Rice;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -24,10 +25,11 @@ public class Service {
         return json;
     }
     
-    public List<Rice> queryRices(String url) {
+    public Rice[] queryRices(String url) {
         String json = getJsonString(url);
         // json 轉 List<Rice>, 使用 Gson
-        
-        return null;
+        Gson gson = new Gson();
+        Rice[] rices = gson.fromJson(json, Rice[].class);
+        return rices;
     }
 }
