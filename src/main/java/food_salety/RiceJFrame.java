@@ -141,7 +141,8 @@ public class RiceJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    // 清空 button
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
         service.clearRiceTable();
         List<Rice> rices = service.queryRicesFromTable();
@@ -152,13 +153,15 @@ public class RiceJFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "清除失敗");
         }
     }//GEN-LAST:event_clearBtnActionPerformed
-
+    
+    // 查詢 button
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         String keyword = kw.getText();
         List<Rice> rices = service.queryRicesFromTable(keyword);
         showRiceTable(rices);
     }//GEN-LAST:event_searchBtnActionPerformed
-
+    
+    // 匯入 button
     private void importBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importBtnActionPerformed
         String url = "https://data.coa.gov.tw/Service/OpenData/FromM/AgricultureiRiceFailure.aspx";
         service.importToRiceTable(url);
