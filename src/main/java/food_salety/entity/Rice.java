@@ -1,6 +1,7 @@
 package food_salety.entity;
 
 public class Rice {
+    private int id;
     private String Title;
     private String 編號;
     private String 品名;
@@ -13,6 +14,14 @@ public class Rice {
     private String 行政處分;
     private String Log_UpdateTime;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getTitle() {
         return Title;
     }

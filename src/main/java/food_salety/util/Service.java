@@ -10,6 +10,8 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Service {
@@ -87,4 +89,62 @@ public class Service {
             e.printStackTrace();
         }
     }
+    
+    // 取得 Rice Table 的所有資料
+    public List<Rice> queryRicesFromTable() {
+        List<Rice> rices = new ArrayList<>();
+        String sql = "Select id, Title, 編號, 品名, 國際條碼, 廠商名稱, 廠商地址, 檢驗結果, 不合格原因, 違反規定, 行政處分, Log_UpdateTime From Rice";
+        try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()) {
+                Rice r = new Rice();
+                r.setId(rs.getInt("id"));
+                r.setTitle(rs.getString("Title"));
+                r.set編號(rs.getString("編號"));
+                r.set品名(rs.getString("品名"));
+                r.set國際條碼(rs.getString("國際條碼"));
+                r.set廠商名稱(rs.getString("廠商名稱"));
+                r.set廠商地址(rs.getString("廠商地址"));
+                r.set檢驗結果(rs.getString("檢驗結果"));
+                r.set不合格原因(rs.getString("不合格原因"));
+                r.set違反規定(rs.getString("違反規定"));
+                r.set行政處分(rs.getString("行政處分"));
+                r.setLog_UpdateTime(rs.getString("Log_UpdateTime"));
+                rices.add(r);
+            }
+            rs.close();
+        } catch (Exception e) {
+        }
+        return rices;
+    }
+    
+    // 利用關鍵字查詢 Rice Table 的資料
+    public List<Rice> queryRicesFromTable(String keyword) {
+        List<Rice> rices = new ArrayList<>();
+        String sql = "Select id, Title, 編號, 品名, 國際條碼, 廠商名稱, 廠商地址, 檢驗結果, 不合格原因, 違反規定, 行政處分, Log_UpdateTime From Rice WHERE 品名 like ?";
+        try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, "%" + keyword + "%");
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()) {
+                Rice r = new Rice();
+                r.setId(rs.getInt("id"));
+                r.setTitle(rs.getString("Title"));
+                r.set編號(rs.getString("編號"));
+                r.set品名(rs.getString("品名"));
+                r.set國際條碼(rs.getString("國際條碼"));
+                r.set廠商名稱(rs.getString("廠商名稱"));
+                r.set廠商地址(rs.getString("廠商地址"));
+                r.set檢驗結果(rs.getString("檢驗結果"));
+                r.set不合格原因(rs.getString("不合格原因"));
+                r.set違反規定(rs.getString("違反規定"));
+                r.set行政處分(rs.getString("行政處分"));
+                r.setLog_UpdateTime(rs.getString("Log_UpdateTime"));
+                rices.add(r);
+            }
+            rs.close();
+        } catch (Exception e) {
+        }
+        return rices;
+    }
+    
 }
