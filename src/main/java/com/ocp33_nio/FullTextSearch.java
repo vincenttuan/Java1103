@@ -10,7 +10,7 @@ public class FullTextSearch {
     static int count = 0;
     public static void main(String[] args) throws Exception {
         // 總共寫了幾隻 Java 程式
-        String path = "C:\\Users\\MB-207\\Documents\\NetBeansProjects\\Java1103\\src\\main\\java";
+        String path = "C:\\Users\\MB-207\\Documents\\NetBeansProjects";
         Stream<Path> paths = Files.walk(Paths.get(path));
         paths.parallel()
             .filter(p -> p.toString().contains(".java"))
